@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "autoPort": true,
+  "configurations": [
+    {
+      "name": "bsic-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:next"],
+      "port": 3000
+    }
+  ]
+}
