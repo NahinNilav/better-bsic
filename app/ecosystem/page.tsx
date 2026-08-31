@@ -7,14 +7,14 @@ import { BrandTitle } from "@/components/brand-title";
 
 export const metadata: Metadata = {
   title: "Ecosystem",
-  description: "How BSIC strengthens Bangladesh’s founder, university, accelerator and investor ecosystem.",
+  description: "How BSIC develops early-stage founders alongside universities, accelerators and the diaspora.",
 };
 
 const programs = [
-  { icon: GraduationCap, number: "01", title: "University accelerator programs", copy: "Structured partnerships that identify, train and fast-track student and faculty-led ventures into investable companies." },
-  { icon: Users, number: "02", title: "Founder development & mentorship", copy: "Operator, investor and diaspora mentorship that builds company capability before and after investment." },
-  { icon: Network, number: "03", title: "Accelerator & incubator partnerships", copy: "Formal pathways for better deal flow, shared programming and a stronger early-stage company pipeline." },
-  { icon: Map, number: "04", title: "Regional innovation beyond Dhaka", copy: "Local partnerships in Chattogram, Sylhet, Rajshahi and secondary cities where founder support remains fragmented." },
+  { icon: GraduationCap, number: "01", title: "University accelerator programmes", copy: "Partnerships with leading Bangladeshi universities that identify, train and fast-track student and faculty-led ventures into investable startups." },
+  { icon: Users, number: "02", title: "Founder development & mentorship", copy: "Mentorship tracks connecting early-stage founders with experienced operators, investors and diaspora professionals." },
+  { icon: Network, number: "03", title: "Accelerator & incubator partnerships", copy: "Co-developed programming with accelerators and incubators across the country, strengthening the early-stage pipeline." },
+  { icon: Map, number: "04", title: "Regional innovation beyond Dhaka", copy: "Startup support extended to Chattogram, Sylhet, Rajshahi and secondary cities through local partnerships." },
 ];
 
 export default function EcosystemPage() {
@@ -22,13 +22,12 @@ export default function EcosystemPage() {
     <>
       <PageHero
         eyebrow="Ecosystem"
-        title="Build the conditions that let exceptional founders emerge."
-        description="BSIC’s mandate extends beyond deploying capital. It strengthens the pathways, knowledge and institutional connections around Bangladesh’s innovation economy."
-        note="Every program should have a measurable line to founder quality, investment readiness or portfolio value creation."
+        title="Building the ecosystem, not just funding it."
+        description="BSIC’s mandate goes past deploying capital. It is designed to strengthen the foundations of Bangladesh’s innovation economy, partnering with ecosystem players to develop early-stage founders from the ground up."
       />
       <section className="section section--white">
         <div className="shell">
-          <SectionHeading eyebrow="01 · Platform programs" title="Ecosystem infrastructure, not event volume." copy="Four focused program areas connect BSIC’s national mandate to a stronger investment pipeline." />
+          <SectionHeading eyebrow="01 · Programmes" title="Four programme areas." copy="Each one feeds the investment pipeline BSIC deploys into." />
           <div className="program-grid">
             {programs.map(({ icon: Icon, ...program }) => (
               <article key={program.number}>
@@ -42,20 +41,20 @@ export default function EcosystemPage() {
       </section>
       <section className="section section--green">
         <div className="shell partner-paths">
-          <SectionHeading eyebrow="02 · Partner pathways" title="One platform, multiple ways to contribute." />
+          <SectionHeading eyebrow="02 · Partner pathways" title="Ways to work with BSIC." />
           <div>
-            <article><p className="eyebrow">Accelerators</p><h3>Build a reliable referral path.</h3><p>Align screening, readiness support and warm founder introductions to reduce friction.</p></article>
-            <article><p className="eyebrow">Universities</p><h3>Move talent toward company building.</h3><p>Connect promising teams to structured validation, mentors and investment readiness.</p></article>
-            <article><p className="eyebrow">Diaspora</p><h3>Turn distance into leverage.</h3><p>Contribute operator expertise, market access, capital and trusted international networks.</p></article>
-            <article><p className="eyebrow">Institutions</p><h3>Coordinate long-term capability.</h3><p>Support program infrastructure, research and regional reach with measurable outcomes.</p></article>
+            <article><p className="eyebrow">Accelerators</p><h3>Referral pathways</h3><p>Screening, readiness support and warm founder introductions into the BSIC pipeline.</p></article>
+            <article><p className="eyebrow">Universities</p><h3>Student and faculty ventures</h3><p>Structured accelerators that move promising teams toward investable companies.</p></article>
+            <article><p className="eyebrow">Diaspora</p><h3>Diaspora operators</h3><p>Operator expertise, market access and international networks from Bangladeshis abroad.</p></article>
+            <article><p className="eyebrow">Institutions</p><h3>Programme partners</h3><p>Support for programme delivery, research and reach beyond Dhaka.</p></article>
           </div>
         </div>
       </section>
       <section className="section section--cream ecosystem-cta">
         <div className="shell">
-          <p className="eyebrow eyebrow--line">Work with BSIC</p>
-          <h2><BrandTitle>A clear partnership starts with a concrete outcome.</BrandTitle></h2>
-          <p>Share the founders, geography, capability or institutional connection your organisation can help strengthen.</p>
+          <p className="eyebrow eyebrow--line">Partner with BSIC</p>
+          <h2><BrandTitle>Start with the founders you reach.</BrandTitle></h2>
+          <p>Tell us which founders your organisation reaches, and where.</p>
           <Link className="button button--primary" href="/contact?for=ecosystem">Propose a partnership <ArrowRight aria-hidden="true" size={17} /></Link>
         </div>
       </section>

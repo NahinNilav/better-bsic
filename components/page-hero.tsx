@@ -5,10 +5,16 @@ type PageHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
-  note?: string;
 };
 
-export function PageHero({ eyebrow, title, description, note }: PageHeroProps) {
+const fundFacts = [
+  ["Fund I", "USD 35M"],
+  ["Shareholder banks", "39"],
+  ["Paid-up capital", "Tk 4.25Bn"],
+  ["Launched", "12 May 2026"],
+];
+
+export function PageHero({ eyebrow, title, description }: PageHeroProps) {
   return (
     <section className="page-hero">
       <div className="page-hero__grid">
@@ -19,11 +25,15 @@ export function PageHero({ eyebrow, title, description, note }: PageHeroProps) {
         </div>
         <div className="page-hero__panel">
           <GrowthRings compact />
-          <p className="mono-label">ONKUR · BANGLADESH FUND I</p>
-          <p className="page-hero__panel-title">
-            <BrandTitle>Bangladesh-backed. Globally fluent.</BrandTitle>
-          </p>
-          {note ? <p>{note}</p> : null}
+          <p className="mono-label">ONKUR · Bangladesh Fund I</p>
+          <dl className="page-hero__facts">
+            {fundFacts.map(([label, value]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

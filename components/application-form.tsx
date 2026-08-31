@@ -24,8 +24,8 @@ export function ApplicationForm({ roleTitle, roleSlug }: { roleTitle: string; ro
         <p className="eyebrow">Application prototype</p>
         <h2>Thank you, {name || "candidate"}.</h2>
         <p>
-          A production application for <strong>{roleTitle}</strong> would now be
-          securely recorded and acknowledged by email.
+          A live application for <strong>{roleTitle}</strong> would now be
+          recorded and acknowledged by email.
         </p>
         <p className="form-demo-note">
           This V1 is frontend-only. No personal information or files were transmitted.
@@ -82,8 +82,7 @@ export function ApplicationForm({ roleTitle, roleSlug }: { roleTitle: string; ro
           </label>
         </div>
         <p className="form-privacy">
-          Production applications should include retention, privacy and accessibility
-          information before consent. For accommodations, use the contact route.
+          Need an adjustment to the process? Get in touch through the contact route.
         </p>
       </fieldset>
       <div className="flow-form__actions">

@@ -31,19 +31,27 @@ The project is frontend-only. Pitch, contact and job application submissions are
 
 ## Implemented routes
 
-- `/` — redesigned institutional homepage
-- `/approach` — thesis, criteria, process and founder FAQ
-- `/portfolio` — honest launch/deployment state
-- `/ecosystem` — programs and partner pathways
-- `/about` — mandate, structure, governance and shareholders
-- `/insights` — launch coverage and editorial roadmap
+The information architecture follows the live site's own content. Every section
+maps to something BSIC has actually published; nothing is invented to fill a page.
+
+- `/` — hero, what BSIC is, co-investment, ecosystem, shareholder banks, press, impact
+- `/about` — mandate, structure, capital base and all 39 shareholders
+- `/co-investment` — the five-stage process, scope and the Temasek/GIC precedent
+- `/ecosystem` — the four programme areas and partner pathways
+- `/impact` — BSIC's modelled ten-year outcomes, labelled as projections
 - `/careers` — grouped open roles and hiring process
-- `/careers/[slug]` — consistent detail template for all six roles
+- `/careers/[slug]` — role detail for all six roles
 - `/careers/[slug]/apply` — preselected mock application flow
-- `/pitch` — three-step founder intake with save/resume and confirmation
+- `/pitch` — founder intake, opening with the lead-investor question
 - `/contact` — audience-routed mock enquiry flow
-- `/privacy`, `/terms`, `/accessibility`, `/disclosures`
 - styled 404 page
+
+## The co-investment model
+
+BSIC matches a lead investor the founder has already secured. It does not run an
+open application funnel and does not set terms. The five stages — founder secures
+lead, BSIC matches, joint diligence, local investors join, round closes — are
+stated identically on the homepage, on `/co-investment` and in the pitch form.
 
 ## Before a public production launch
 

@@ -132,7 +132,7 @@ export default async function RolePage({ params }: RolePageProps) {
       <section className="role-closing">
         <div className="shell role-closing__grid">
           <div><p className="eyebrow">Build something enduring</p><h2><BrandTitle>{role.closing}</BrandTitle></h2></div>
-          <div><p>The production process will confirm receipt, explain next steps and protect candidate data.</p><Link className="button button--light" href={`/careers/${role.slug}/apply`}>Apply for {role.title} <ArrowRight aria-hidden="true" size={17} /></Link></div>
+          <div><p>Applications are read by the hiring team. You will hear back either way.</p><Link className="button button--light" href={`/careers/${role.slug}/apply`}>Apply for {role.title} <ArrowRight aria-hidden="true" size={17} /></Link></div>
         </div>
       </section>
     </>

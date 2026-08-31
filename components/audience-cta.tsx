@@ -4,22 +4,22 @@ import { ArrowRight } from "lucide-react";
 const audiences = [
   {
     eyebrow: "For founders",
-    title: "Building from Bangladesh?",
-    copy: "Share your company, traction and planned round with the investment team.",
+    title: "Raising with a lead investor?",
+    copy: "Tell us about the round and who is anchoring it.",
     href: "/pitch",
     cta: "Pitch BSIC",
   },
   {
     eyebrow: "For co-investors",
-    title: "Looking for local conviction?",
-    copy: "Combine global investment standards with institutional local access and diligence.",
+    title: "Leading a round in Bangladesh?",
+    copy: "BSIC matches your commitment and runs diligence on the ground.",
     href: "/contact?for=co-investor",
     cta: "Discuss co-investment",
   },
   {
     eyebrow: "For partners",
-    title: "Strengthening the ecosystem?",
-    copy: "Work with BSIC across universities, accelerators, talent and regional programs.",
+    title: "Building the ecosystem?",
+    copy: "Universities, accelerators and diaspora networks work with BSIC directly.",
     href: "/contact?for=ecosystem",
     cta: "Partner with BSIC",
   },

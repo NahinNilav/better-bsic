@@ -1,57 +1,81 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { AudienceCta } from "@/components/audience-cta";
+import { BankWall } from "@/components/bank-wall";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
-import { allBanks } from "@/data/site";
-import { BrandTitle } from "@/components/brand-title";
+import { structurePillars } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "BSIC’s mandate, institutional architecture and governance model.",
+  description:
+    "BSIC is a permanent, bank-backed national investment institution. Its mandate, structure, capital base and shareholders.",
 };
+
+const mandate = [
+  {
+    label: "Vision",
+    title: "Banking capital → startup growth",
+    copy: "Convert Bangladesh’s banking sector — the country’s largest pool of institutionally managed capital — into a direct driver of startup growth, job creation and new industry formation.",
+  },
+  {
+    label: "Purpose",
+    title: "Three mandates",
+    copy: "Direct equity investment into high-growth startups. Co-investment alongside global institutional VC funds. A domestic anchor that brings foreign capital into Bangladesh.",
+  },
+  {
+    label: "Outcome",
+    title: "A globally aligned asset class",
+    copy: "A credible institutional vehicle delivering financial returns, measurable innovation impact, and Bangladesh’s position as an investable destination for global VC and FDI.",
+  },
+];
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
         eyebrow="About BSIC"
-        title="Not a program. A permanent institution."
-        description="BSIC is an independent, bank-backed national investment platform established to channel institutional capital into high-growth Bangladeshi startups."
-        note="Commercial discipline, independent investment decisions and transparent fiduciary accountability are core to the institution’s credibility."
+        title="Not a programme. A permanent institution."
+        description="39 commercial banks contribute up to 1% of annual net profits, pooled into BSIC with initial paid-up capital of about Tk 4.25Bn and authorised capital of Tk 20Bn, professionally managed and deployed as institutional venture capital — with an independent Investment Committee and full fiduciary accountability."
       />
+
       <section className="section section--white">
-        <div className="shell about-mandate">
-          <SectionHeading eyebrow="01 · Mandate" title="Banking capital → startup growth." />
-          <p className="about-mandate__lead">
-            39 commercial banks contribute up to 1% of annual net profits,
-            pooled into BSIC and professionally deployed as institutional venture
-            capital alongside global investors.
-          </p>
+        <div className="shell">
+          <SectionHeading eyebrow="01 · Mandate" title="What BSIC exists to do." />
           <div className="mandate-grid">
-            <article><span>VISION</span><h3>Convert capital into new industries.</h3><p>Use Bangladesh’s largest pool of institutionally managed capital to support startup growth, jobs and global capital inflows.</p></article>
-            <article><span>PURPOSE</span><h3>Three connected mandates.</h3><p>Direct equity investment, co-investment with institutional VCs and a credible domestic anchor for foreign capital.</p></article>
-            <article><span>OUTCOME</span><h3>A globally aligned asset class.</h3><p>Deliver financial returns, measurable innovation impact and a stronger case for Bangladesh as a venture destination.</p></article>
+            {mandate.map((item) => (
+              <article key={item.label}>
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
+
       <section className="section section--cream">
         <div className="shell">
-          <SectionHeading eyebrow="02 · Institutional architecture" title="Built to separate mandate from investment judgement." />
+          <SectionHeading eyebrow="02 · Structure" title="How BSIC operates." />
           <div className="architecture-grid">
-            <div><span>01</span><h3>Shareholder banks</h3><p>Provide the institutional capital base and shareholder governance.</p></div>
-            <div><span>02</span><h3>Board of Directors</h3><p>Sets institutional direction, oversight and accountability frameworks.</p></div>
-            <div><span>03</span><h3>Investment Committee</h3><p>Applies independent investment judgement and fiduciary discipline.</p></div>
-            <div><span>04</span><h3>BSIC team</h3><p>Sources, diligences, executes and supports the portfolio day to day.</p></div>
-          </div>
-          <div className="governance-note">
-            <p><strong>Disclosure roadmap.</strong> Names and biographies for leadership, the Board and Investment Committee should be published after formal approval, with conflicts and governance policies linked from this page.</p>
+            {structurePillars.map((pillar) => (
+              <div key={pillar.number}>
+                <span>{pillar.number}</span>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.copy}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
       <section className="section section--green">
         <div className="shell about-capital">
-          <div><p className="eyebrow">03 · Capital base</p><h2><BrandTitle>Institutional scale from day one.</BrandTitle></h2></div>
+          <div>
+            <p className="eyebrow">03 · Capital base</p>
+            <h2>Institutional scale from day one.</h2>
+          </div>
           <dl>
             <div><dt>Fund I size</dt><dd>USD 35M</dd></div>
             <div><dt>Paid-up capital</dt><dd>Tk 4.25Bn</dd></div>
@@ -60,13 +84,22 @@ export default function AboutPage() {
           </dl>
         </div>
       </section>
-      <section className="section section--white shareholder-list-section">
+
+      <section className="section section--white">
         <div className="shell">
-          <SectionHeading eyebrow="04 · Shareholders" title="39 commercial banks. One national mandate." />
-          <ol className="shareholder-list">{allBanks.map((bank) => <li key={bank}>{bank}</li>)}</ol>
-          <Link className="button button--secondary" href="/contact?for=shareholder">Institutional enquiries <ArrowRight aria-hidden="true" size={17} /></Link>
+          <SectionHeading
+            eyebrow="04 · Shareholders"
+            title="39 commercial banks. One national mandate."
+            copy="Bangladesh’s leading commercial banks form the institutional foundation of ONKUR — Bangladesh Fund I."
+          />
+          <BankWall note="Every shareholder bank of ONKUR — Bangladesh Fund I, listed alphabetically and weighted equally." />
+          <Link className="button button--secondary about-enquiry" href="/contact?for=shareholder">
+            Institutional enquiries <ArrowRight aria-hidden="true" size={17} />
+          </Link>
         </div>
       </section>
+
+      <AudienceCta />
     </>
   );
 }

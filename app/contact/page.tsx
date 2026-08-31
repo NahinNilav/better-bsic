@@ -4,7 +4,7 @@ import { BrandTitle } from "@/components/brand-title";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact BSIC as a founder, co-investor, ecosystem partner, institution or member of the media.",
+  description: "Reach BSIC as a co-investor, ecosystem partner, shareholder institution or journalist.",
 };
 
 type ContactPageProps = { searchParams: Promise<{ for?: string }> };
@@ -16,12 +16,12 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       <div className="shell form-page__grid">
         <div className="form-page__intro">
           <p className="eyebrow eyebrow--line">Contact BSIC</p>
-          <h1><BrandTitle>Begin with the right conversation.</BrandTitle></h1>
-          <p className="lede">A single, structured entry point for co-investment, ecosystem, shareholder, media and recruiting enquiries.</p>
+          <h1><BrandTitle>Built together. Starting now.</BrandTitle></h1>
+          <p className="lede">For shareholder banks, founders, ecosystem partners and international venture capital firms interested in co-investing — we welcome your engagement.</p>
           <div className="contact-routes">
             <div><span>Office</span><strong>Dhaka, Bangladesh</strong></div>
-            <div><span>Founder submissions</span><strong>Use the dedicated Pitch BSIC flow</strong></div>
-            <div><span>Response routing</span><strong>Selected by enquiry type</strong></div>
+            <div><span>Founders</span><strong>Use the Pitch BSIC form</strong></div>
+            <div><span>Company</span><strong>Bangladesh Startup Investment Company PLC</strong></div>
           </div>
         </div>
         <ContactForm initialAudience={audience} />

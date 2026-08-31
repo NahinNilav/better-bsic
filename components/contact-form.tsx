@@ -21,8 +21,8 @@ export function ContactForm({ initialAudience = "general" }: { initialAudience?:
       <div className="form-success" role="status" aria-live="polite">
         <span className="form-success__icon"><Check aria-hidden="true" size={26} /></span>
         <p className="eyebrow">Prototype confirmation</p>
-        <h2>Your enquiry is structured.</h2>
-        <p>A production version would route this to the correct BSIC team and send an acknowledgement.</p>
+        <h2>Thank you.</h2>
+        <p>A live form would route this to the right BSIC team and send you an acknowledgement.</p>
         <p className="form-demo-note">No information was transmitted in this frontend-only V1.</p>
         <Button className="button button--secondary" type="button" onClick={() => setSubmitted(false)}>Send another enquiry</Button>
       </div>
@@ -50,7 +50,7 @@ export function ContactForm({ initialAudience = "general" }: { initialAudience?:
           <label>Organisation<Input className="form-control" autoComplete="organization" /></label>
           <label className="form-grid__full">Message <span aria-hidden="true">*</span><Textarea className="form-control form-control--textarea" placeholder="What would a useful next conversation cover?" required /></label>
         </div>
-        <p className="form-privacy">Production enquiries should be handled under BSIC’s approved privacy and records-retention policy.</p>
+        <p className="form-privacy">This prototype sends nothing. A live form would show BSIC’s privacy notice here.</p>
       </fieldset>
       <div className="flow-form__actions flow-form__actions--right">
         <Button className="button button--primary" type="submit">Send demo enquiry <ArrowRight aria-hidden="true" size={17} /></Button>

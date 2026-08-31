@@ -18,6 +18,7 @@ type PitchData = {
   stage: string;
   raise: string;
   lead: string;
+  leadFirm: string;
   traction: string;
   founder: string;
   email: string;
@@ -31,13 +32,14 @@ const emptyPitch: PitchData = {
   stage: "",
   raise: "",
   lead: "",
+  leadFirm: "",
   traction: "",
   founder: "",
   email: "",
   phone: "",
 };
 
-const stepTitles = ["Company", "Round", "Founder"];
+const stepTitles = ["Your round", "Company", "Founder"];
 
 export function PitchForm() {
   const [step, setStep] = useState(0);
@@ -91,11 +93,12 @@ export function PitchForm() {
         <p className="eyebrow">Prototype confirmation</p>
         <h2>Thank you, {data.founder || "founder"}.</h2>
         <p>
-          The production flow would now send a secure confirmation and give the
-          BSIC team a structured screening record for {data.company || "your company"}.
+          A live submission would reach the investment team with{" "}
+          {data.company || "your company"}, the round and your lead investor
+          attached, and you would get a confirmation by email.
         </p>
         <p className="form-demo-note">
-          This V1 is frontend-only. No personal or company information was transmitted.
+          This is a prototype. Nothing was transmitted.
         </p>
         <Button
           className="button button--secondary"
@@ -128,8 +131,67 @@ export function PitchForm() {
         {step === 0 ? (
           <fieldset>
             <legend>
-              <span className="eyebrow">01 · Company</span>
-              Tell us what you are building.
+              <span className="eyebrow">01 · Your round</span>
+              Who is leading it?
+            </legend>
+            <p className="form-gate-note">
+              BSIC commits matching capital alongside a credible institutional
+              lead. Tell us where that search stands.
+            </p>
+            <div className="form-grid">
+              <label className="form-grid__full">
+                Lead investor status <span aria-hidden="true">*</span>
+                <NativeSelect
+                  className="form-control"
+                  value={data.lead}
+                  onChange={(event) => update("lead", event.target.value)}
+                  required
+                  aria-label="Lead investor status"
+                >
+                  <NativeSelectOption value="">Select status</NativeSelectOption>
+                  <NativeSelectOption value="Committed">A lead is committed</NativeSelectOption>
+                  <NativeSelectOption value="In discussion">A lead is in discussion</NativeSelectOption>
+                  <NativeSelectOption value="Seeking">Still seeking a lead</NativeSelectOption>
+                </NativeSelect>
+              </label>
+              {data.lead === "Seeking" ? (
+                <p className="form-gate-callout form-grid__full" role="status">
+                  BSIC matches a lead rather than setting terms, so a round
+                  without one is early for a match. Continue if you would like the
+                  team to know you now — introductions sometimes come from the
+                  co-investor network.
+                </p>
+              ) : null}
+              {data.lead === "Committed" || data.lead === "In discussion" ? (
+                <label className="form-grid__full">
+                  Lead investor
+                  <Input
+                    className="form-control"
+                    value={data.leadFirm}
+                    onChange={(event) => update("leadFirm", event.target.value)}
+                    placeholder="Firm anchoring the round"
+                  />
+                </label>
+              ) : null}
+              <label>
+                Target raise <span aria-hidden="true">*</span>
+                <Input
+                  className="form-control"
+                  value={data.raise}
+                  onChange={(event) => update("raise", event.target.value)}
+                  placeholder="e.g. USD 2.5M"
+                  required
+                />
+              </label>
+            </div>
+          </fieldset>
+        ) : null}
+
+        {step === 1 ? (
+          <fieldset>
+            <legend>
+              <span className="eyebrow">02 · Company</span>
+              What are you building?
             </legend>
             <div className="form-grid">
               <label>
@@ -166,9 +228,9 @@ export function PitchForm() {
                   <NativeSelectOption value="Agritech">Agritech</NativeSelectOption>
                   <NativeSelectOption value="Healthtech">Healthtech</NativeSelectOption>
                   <NativeSelectOption value="Edtech">Edtech</NativeSelectOption>
-                  <NativeSelectOption value="Climate">Climate</NativeSelectOption>
-                  <NativeSelectOption value="SaaS / AI">SaaS / AI</NativeSelectOption>
                   <NativeSelectOption value="Logistics">Logistics</NativeSelectOption>
+                  <NativeSelectOption value="SaaS / AI">SaaS / AI</NativeSelectOption>
+                  <NativeSelectOption value="RMG infrastructure">RMG infrastructure</NativeSelectOption>
                   <NativeSelectOption value="Other">Other</NativeSelectOption>
                 </NativeSelect>
               </label>
@@ -189,49 +251,13 @@ export function PitchForm() {
                   <NativeSelectOption value="Series B+">Series B+</NativeSelectOption>
                 </NativeSelect>
               </label>
-            </div>
-          </fieldset>
-        ) : null}
-
-        {step === 1 ? (
-          <fieldset>
-            <legend>
-              <span className="eyebrow">02 · Round</span>
-              Help us understand the opportunity.
-            </legend>
-            <div className="form-grid">
-              <label>
-                Target raise <span aria-hidden="true">*</span>
-                <Input
-                  className="form-control"
-                  value={data.raise}
-                  onChange={(event) => update("raise", event.target.value)}
-                  placeholder="e.g. USD 2.5M"
-                  required
-                />
-              </label>
-              <label>
-                Lead investor status
-                <NativeSelect
-                  className="form-control"
-                  value={data.lead}
-                  onChange={(event) => update("lead", event.target.value)}
-                  aria-label="Lead investor status"
-                >
-                  <NativeSelectOption value="">Select status</NativeSelectOption>
-                  <NativeSelectOption value="Committed">Lead committed</NativeSelectOption>
-                  <NativeSelectOption value="In discussion">In discussion</NativeSelectOption>
-                  <NativeSelectOption value="Seeking">Seeking a lead</NativeSelectOption>
-                  <NativeSelectOption value="Not applicable">Not applicable</NativeSelectOption>
-                </NativeSelect>
-              </label>
               <label className="form-grid__full">
                 Traction and why now <span aria-hidden="true">*</span>
                 <Textarea
                   className="form-control form-control--textarea"
                   value={data.traction}
                   onChange={(event) => update("traction", event.target.value)}
-                  placeholder="Share revenue or usage growth, customers, and the milestone this round unlocks."
+                  placeholder="Revenue or usage growth, customers, and the milestone this round unlocks."
                   required
                 />
               </label>
@@ -243,7 +269,7 @@ export function PitchForm() {
           <fieldset>
             <legend>
               <span className="eyebrow">03 · Founder</span>
-              Where should the investment team respond?
+              Where should the team reply?
             </legend>
             <div className="form-grid">
               <label>
@@ -281,11 +307,12 @@ export function PitchForm() {
                 <p className="mono-label">Submission summary</p>
                 <p><strong>{data.company || "Company"}</strong> · {data.stage || "Stage"}</p>
                 <p>{data.sector || "Sector"} · Raising {data.raise || "—"}</p>
+                <p>Lead: {data.leadFirm || data.lead || "—"}</p>
               </div>
             </div>
             <p className="form-privacy">
-              In production, BSIC’s privacy notice and secure document-upload policy
-              would appear here before submission.
+              This prototype sends nothing. A live form would show BSIC’s privacy
+              notice and document-upload policy here.
             </p>
           </fieldset>
         ) : null}

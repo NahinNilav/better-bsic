@@ -5,8 +5,7 @@ const footerGroups = [
   {
     label: "Invest",
     links: [
-      ["Investment approach", "/approach"],
-      ["Portfolio", "/portfolio"],
+      ["Co-investment", "/co-investment"],
       ["Pitch BSIC", "/pitch"],
       ["Co-invest with us", "/contact?for=co-investor"],
     ],
@@ -16,17 +15,16 @@ const footerGroups = [
     links: [
       ["About BSIC", "/about"],
       ["Ecosystem", "/ecosystem"],
-      ["Insights & news", "/insights"],
+      ["Impact", "/impact"],
       ["Careers", "/careers"],
     ],
   },
   {
-    label: "Information",
+    label: "Contact",
     links: [
-      ["Contact", "/contact"],
-      ["Privacy", "/privacy"],
-      ["Accessibility", "/accessibility"],
-      ["Disclosures", "/disclosures"],
+      ["Get in touch", "/contact"],
+      ["Shareholder enquiries", "/contact?for=shareholder"],
+      ["Media enquiries", "/contact?for=media"],
     ],
   },
 ];
@@ -65,7 +63,6 @@ export function SiteFooter() {
       <div className="site-footer__bottom shell">
         <p>© 2026 Bangladesh Startup Investment Company PLC</p>
         <p>ONKUR — Bangladesh Fund I · Launched May 2026</p>
-        <Link href="/terms">Terms</Link>
       </div>
     </footer>
   );

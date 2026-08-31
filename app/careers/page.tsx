@@ -94,10 +94,10 @@ export default function CareersPage() {
             <h2><BrandTitle>High standards. Clear ownership. Long-term thinking.</BrandTitle></h2>
           </div>
           <div className="careers-principles__grid">
-            <article><h3>Work mode</h3><p>Roles are based in Dhaka and designed around close, high-trust collaboration. Any flexibility should be clarified during the hiring process.</p></article>
+            <article><h3>Work mode</h3><p>Roles are based in Dhaka and built around close, in-person collaboration. Ask about flexibility during the hiring process.</p></article>
             <article><h3>Compensation</h3><p>Packages are role-appropriate and internationally or regionally benchmarked, with performance alignment where applicable.</p></article>
-            <article><h3>Equal opportunity</h3><p>BSIC should evaluate candidates on ability, integrity and potential, and provide reasonable recruitment accommodations.</p></article>
-            <article><h3>Candidate respect</h3><p>Production recruiting should publish timelines, protect candidate data and close the loop after meaningful interviews.</p></article>
+            <article><h3>Equal opportunity</h3><p>Candidates are assessed on ability and integrity. Ask for an adjustment to the process at any point.</p></article>
+            <article><h3>Candidate respect</h3><p>You get a timeline up front and an answer at the end, whichever way it goes.</p></article>
           </div>
           <Link className="button button--light" href="/contact?for=recruiting">Recruiting & accessibility contact <ArrowRight aria-hidden="true" size={17} /></Link>
         </div>

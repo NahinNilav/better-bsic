@@ -1,10 +1,98 @@
 export const navItems = [
-  { href: "/approach", label: "Approach" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/ecosystem", label: "Ecosystem" },
   { href: "/about", label: "About" },
-  { href: "/insights", label: "Insights" },
+  { href: "/co-investment", label: "Co-investment" },
+  { href: "/ecosystem", label: "Ecosystem" },
+  { href: "/impact", label: "Impact" },
   { href: "/careers", label: "Careers" },
+];
+
+/**
+ * BSIC's published co-investment model. The founder secures the lead; BSIC
+ * matches it. This is the only process the fund operates, and it is stated the
+ * same way everywhere it appears on the site.
+ */
+export const coInvestmentStages = [
+  {
+    stage: "Stage 01",
+    title: "Founder secures lead",
+    copy: "The founder lines up a credible institutional lead investor — a global or regional VC firm willing to anchor the round.",
+  },
+  {
+    stage: "Stage 02",
+    title: "BSIC matches",
+    copy: "BSIC commits matching capital alongside the lead, turning a foreign-led round into a larger, mixed-capital round.",
+  },
+  {
+    stage: "Stage 03",
+    title: "Joint diligence",
+    copy: "BSIC's local team runs deep diligence on the ground. Findings are shared with the global lead.",
+  },
+  {
+    stage: "Stage 04",
+    title: "Local investors join",
+    copy: "BSIC's standing brings local families, corporates and family offices into the round alongside the lead.",
+  },
+  {
+    stage: "Stage 05",
+    title: "Round closes",
+    copy: "The round is structured to global benchmarks, properly documented, and closed fast.",
+  },
+];
+
+/** How the institution is put together — the three pillars BSIC publishes. */
+export const structurePillars = [
+  {
+    number: "01",
+    title: "Institutional architecture",
+    copy: "Board Charter, Investment Committee, Shareholders' Agreement and compliance frameworks aligned with Bangladesh Bank directives and the Companies Act.",
+  },
+  {
+    number: "02",
+    title: "Capitalization & governance",
+    copy: "Banks contribute up to 1% of annual net profits, converted into equity stakes with defined capital-call mechanisms and shareholder protections.",
+  },
+  {
+    number: "03",
+    title: "Investment & deployment",
+    copy: "End-to-end deal flow from sourcing through diligence, IC approval and portfolio monitoring, using equity, SAFEs and convertible instruments.",
+  },
+];
+
+/**
+ * Modelled ten-year outcomes as published by BSIC. These are projections, not
+ * results, and every surface that shows them says so.
+ */
+export const impactFigures = [
+  {
+    value: "USD 500M",
+    label: "Catalysed third-party capital",
+    copy: "Crowding in local and global capital alongside strategic public investment.",
+  },
+  {
+    value: "15,000",
+    label: "Direct + indirect jobs",
+    copy: "Across portfolio companies and the value-chain effects they generate as they scale.",
+  },
+  {
+    value: "5M",
+    label: "Livelihoods materially affected",
+    copy: "Smallholders, agents, micro-merchants, RMG workers, patients and learners reached by portfolio products.",
+  },
+  {
+    value: "USD 2B",
+    label: "Cumulative GVA contribution",
+    copy: "Direct value-add plus enabled economic activity, modelled over a ten-year horizon.",
+  },
+  {
+    value: "USD 250M",
+    label: "Tax + formalisation gain",
+    copy: "Including digital rails moving cash economic activity onto the books and into the tax base.",
+  },
+  {
+    value: "40×",
+    label: "Economic multiplier on the fund",
+    copy: "Above standard EM-VC benchmarks. Bangladesh's sector mix compounds inclusion and productivity gains.",
+  },
 ];
 
 /**

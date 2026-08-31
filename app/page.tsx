@@ -1,46 +1,17 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Building2,
-  CheckCircle2,
-  Globe2,
-  Landmark,
-  Network,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, GraduationCap, Map, Network, Users } from "lucide-react";
 import { AudienceCta } from "@/components/audience-cta";
 import { BankWall } from "@/components/bank-wall";
-import { BrandTitle } from "@/components/brand-title";
 import { GrowthRings } from "@/components/growth-rings";
 import { PressWall } from "@/components/press-wall";
 import { SectionHeading } from "@/components/section-heading";
-import { investmentCriteria } from "@/data/site";
+import { coInvestmentStages, impactFigures } from "@/data/site";
 
-const process = [
-  {
-    number: "01",
-    title: "Submit",
-    copy: "Share your company, traction, financing plan and why this is the right moment.",
-    timing: "Structured founder intake",
-  },
-  {
-    number: "02",
-    title: "Initial review",
-    copy: "The team reviews stage, Bangladesh relevance, round structure and early conviction.",
-    timing: "Fit and screening",
-  },
-  {
-    number: "03",
-    title: "Joint diligence & IC",
-    copy: "Local insight, founder references and market diligence are held to global investment standards.",
-    timing: "Evidence before approval",
-  },
-  {
-    number: "04",
-    title: "Invest & support",
-    copy: "BSIC invests alongside credible leads and supports governance, follow-on capital and local access.",
-    timing: "Long-term partnership",
-  },
+const programs = [
+  { icon: GraduationCap, title: "University accelerators" },
+  { icon: Users, title: "Founder development & mentorship" },
+  { icon: Network, title: "Accelerator & incubator partnerships" },
+  { icon: Map, title: "Regional innovation beyond Dhaka" },
 ];
 
 export default function Home() {
@@ -49,25 +20,27 @@ export default function Home() {
       <section className="home-hero">
         <div className="home-hero__grid">
           <div className="home-hero__copy">
-            <p className="eyebrow eyebrow--line">ONKUR · BANGLADESH FUND I</p>
+            <p className="eyebrow eyebrow--line">ONKUR · Bangladesh Fund I · Launched May 2026</p>
             <h1>
               Bangladesh now backs its own <em>founders.</em>
             </h1>
             <p className="home-hero__lede">
-              Institutional capital for Bangladesh’s most ambitious technology
-              companies — deployed alongside global venture investors.
+              ONKUR — Bangladesh Fund I is BSIC’s inaugural vehicle: a USD 35
+              million pool of institutional capital from 39 commercial banks,
+              deployed alongside global venture capital into the country’s most
+              ambitious startups.
             </p>
             <div className="button-row">
               <Link className="button button--primary" href="/pitch">
                 Pitch BSIC <ArrowUpRight aria-hidden="true" size={17} />
               </Link>
-              <Link className="button button--secondary" href="/approach">
-                Explore our approach <ArrowRight aria-hidden="true" size={17} />
+              <Link className="button button--secondary" href="/co-investment">
+                How co-investment works <ArrowRight aria-hidden="true" size={17} />
               </Link>
             </div>
             <dl className="hero-stats">
               <div>
-                <dt>Fund I</dt>
+                <dt>Fund I size</dt>
                 <dd>USD 35M</dd>
               </div>
               <div>
@@ -84,10 +57,10 @@ export default function Home() {
           <div className="home-hero__panel">
             <GrowthRings />
             <div className="home-hero__panel-content">
-              <p className="mono-label mono-label--light">ONKUR · “SEEDLING”</p>
+              <p className="mono-label mono-label--light">ONKUR — Bangla for “seedling”</p>
               <blockquote>
-                “A permanent vehicle for our founders — for Bangladesh to back
-                its entrepreneurs for decades to come.”
+                “This is a permanent vehicle for our founders — for Bangladesh to
+                back its entrepreneurs for decades to come.”
               </blockquote>
               <div className="home-hero__panel-divider" />
               <ul className="fund-facts">
@@ -100,136 +73,120 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section--white" id="thesis">
+      <section className="section section--white" id="about">
         <div className="shell">
           <SectionHeading
-            eyebrow="01 · Investment thesis"
-            title="A precise mandate, visible at a glance."
-            copy="BSIC converts institutional banking capital into a durable venture platform for Bangladesh-linked companies with the ambition and structure to scale."
+            eyebrow="01 · What is BSIC?"
+            title="Not a programme. A permanent institution."
+            copy="39 commercial banks contribute up to 1% of annual net profits, pooled into BSIC and deployed as institutional venture capital by a professional team, under an independent Investment Committee."
           />
           <dl className="criteria-grid">
-            {investmentCriteria.map((item) => (
-              <div key={item.label}>
-                <dt>{item.label}</dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
+            <div><dt>Paid-up capital</dt><dd>Tk 4.25Bn</dd></div>
+            <div><dt>Authorised capital</dt><dd>Tk 20Bn</dd></div>
+            <div><dt>Stage</dt><dd>Late-seed → Series A</dd></div>
+            <div><dt>Instruments</dt><dd>Equity · SAFE · Convertible</dd></div>
+            <div><dt>Round</dt><dd>Institutionally led</dd></div>
+            <div><dt>Model</dt><dd>Global co-investment</dd></div>
           </dl>
           <div className="thesis-note">
             <p>
-              <strong>Founder-first clarification.</strong> Final ticket size,
-              ownership and sector thresholds should be published when formally
-              approved by the Investment Committee.
+              An independent Investment Committee decides every investment, with
+              full fiduciary accountability to the shareholder banks.
             </p>
-            <Link href="/approach">See the full approach <ArrowRight aria-hidden="true" size={16} /></Link>
+            <Link href="/about">How BSIC is structured <ArrowRight aria-hidden="true" size={16} /></Link>
           </div>
         </div>
       </section>
 
-      <section className="section section--cream">
+      <section className="section section--green" id="co-investment">
         <div className="shell">
           <SectionHeading
-            eyebrow="02 · Two-sided value"
-            title="Local conviction. Global standards."
-            copy="The co-investment model creates a stronger round for founders and better local intelligence for global investors."
-          />
-          <div className="value-split">
-            <article>
-              <div className="value-split__icon"><Landmark aria-hidden="true" /></div>
-              <p className="eyebrow">For Bangladeshi founders</p>
-              <h3>An institutional partner built for this market.</h3>
-              <ul className="check-list">
-                <li><CheckCircle2 aria-hidden="true" /> Credible local capital alongside an institutional lead</li>
-                <li><CheckCircle2 aria-hidden="true" /> On-the-ground diligence that understands context</li>
-                <li><CheckCircle2 aria-hidden="true" /> Access to banks, corporates, talent and policy networks</li>
-                <li><CheckCircle2 aria-hidden="true" /> A permanent platform designed to support follow-on growth</li>
-              </ul>
-              <Link href="/pitch">Check fit and pitch BSIC <ArrowRight aria-hidden="true" size={16} /></Link>
-            </article>
-            <article className="value-split__dark">
-              <div className="value-split__icon"><Globe2 aria-hidden="true" /></div>
-              <p className="eyebrow">For global co-investors</p>
-              <h3>A trusted local partner without diluted standards.</h3>
-              <ul className="check-list">
-                <li><CheckCircle2 aria-hidden="true" /> Institutional access to Bangladesh’s startup pipeline</li>
-                <li><CheckCircle2 aria-hidden="true" /> Shared diligence, founder references and regulatory context</li>
-                <li><CheckCircle2 aria-hidden="true" /> Local support through execution, governance and monitoring</li>
-                <li><CheckCircle2 aria-hidden="true" /> Independent judgement and fiduciary accountability</li>
-              </ul>
-              <Link href="/contact?for=co-investor">Discuss co-investment <ArrowRight aria-hidden="true" size={16} /></Link>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--green process-section">
-        <div className="shell">
-          <SectionHeading
-            eyebrow="03 · Investment process"
-            title="Four clear steps from conversation to conviction."
-            copy="A legible process respects founder time while protecting institutional investment standards."
+            eyebrow="02 · Co-investment"
+            title="A co-investment process that benefits everyone."
+            copy="Co-investment isn’t just how BSIC invests — it’s how BSIC accelerates your fundraise. Local institutional capital that matches the foreign lead, opens local doors, and closes rounds at global standards."
           />
           <ol className="process-grid">
-            {process.map((step) => (
-              <li key={step.number}>
-                <p className="process-grid__number">{step.number}</p>
+            {coInvestmentStages.map((step) => (
+              <li key={step.stage}>
+                <p className="process-grid__number">{step.stage.replace("Stage ", "")}</p>
                 <h3>{step.title}</h3>
                 <p>{step.copy}</p>
-                <span>{step.timing}</span>
               </li>
             ))}
           </ol>
-          <div className="proof-strip">
-            <span><Building2 aria-hidden="true" /> Bangladesh-based team</span>
-            <span><Network aria-hidden="true" /> Global co-investment</span>
-            <span><Landmark aria-hidden="true" /> Independent Investment Committee</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--white portfolio-preview">
-        <div className="shell portfolio-preview__grid">
-          <div>
-            <p className="eyebrow eyebrow--line">04 · Portfolio</p>
-            <h2><BrandTitle>Built for proof — never placeholder logos.</BrandTitle></h2>
+          <div className="precedent-note">
             <p>
-              ONKUR launched in May 2026. Public portfolio companies will appear
-              here only after investments are announced and disclosure is approved.
+              Singapore’s Temasek and GIC built their ecosystem this way —
+              co-investing alongside tier-one firms until their domestic capital
+              base could lead on its own. BSIC does the same for Bangladesh.
             </p>
-            <Link className="button button--secondary" href="/portfolio">
-              View launch milestones <ArrowRight aria-hidden="true" size={17} />
+            <Link className="text-link text-link--light" href="/co-investment">
+              See the full process <ArrowRight aria-hidden="true" size={17} />
             </Link>
           </div>
-          <div className="deployment-state">
-            <span className="deployment-state__pulse" />
-            <p className="mono-label">DEPLOYING FROM 2026</p>
-            <strong>Portfolio in formation</strong>
-            <p>Transparent company, stage and partner information will be published as it becomes public.</p>
-          </div>
         </div>
       </section>
 
-      <section className="section section--cream national-platform">
+      <section className="section section--cream" id="ecosystem">
         <div className="shell">
           <SectionHeading
-            eyebrow="05 · National platform"
+            eyebrow="03 · Beyond capital"
+            title="Building the ecosystem, not just funding it."
+            copy="BSIC partners with ecosystem players to develop early-stage founders from the ground up."
+          />
+          <ul className="program-strip">
+            {programs.map(({ icon: Icon, title }) => (
+              <li key={title}>
+                <Icon aria-hidden="true" />
+                <span>{title}</span>
+              </li>
+            ))}
+          </ul>
+          <Link className="text-link" href="/ecosystem">
+            Explore the ecosystem work <ArrowRight aria-hidden="true" size={17} />
+          </Link>
+        </div>
+      </section>
+
+      <section className="section section--white national-platform" id="banks">
+        <div className="shell">
+          <SectionHeading
+            eyebrow="Shareholder banks"
             title="39 commercial banks. One national mandate."
-            copy="Bangladesh’s leading commercial banks form the institutional foundation of ONKUR — Bangladesh Fund I."
+            copy="BSIC is backed by Bangladesh’s leading commercial banks, whose capital forms the institutional foundation of ONKUR — Bangladesh Fund I."
           />
           <BankWall note="Every shareholder bank of ONKUR — Bangladesh Fund I, listed alphabetically and weighted equally." />
         </div>
       </section>
 
-      <section className="section section--white insights-preview">
+      <section className="section section--cream insights-preview" id="press">
         <div className="shell">
           <SectionHeading
-            eyebrow="06 · In the press"
-            title="News with institutional context."
+            eyebrow="In the press"
+            title="BSIC in the press."
             copy="Coverage of the ONKUR — Bangladesh Fund I launch from regional and global technology media."
           />
           <PressWall />
-          <Link className="text-link" href="/insights">
-            Explore insights & news <ArrowRight aria-hidden="true" size={17} />
+        </div>
+      </section>
+
+      <section className="section section--white impact-preview" id="impact">
+        <div className="shell">
+          <SectionHeading
+            eyebrow="04 · Impact"
+            title="What USD 35M actually delivers."
+            copy="Modelled across fintech, agritech, edtech, healthtech, logistics, SaaS / AI and RMG infrastructure, where Bangladesh’s late-seed → Series B opportunity is concentrated."
+          />
+          <dl className="impact-strip">
+            {impactFigures.slice(0, 3).map((figure) => (
+              <div key={figure.value}>
+                <dt>{figure.value}</dt>
+                <dd>{figure.label}</dd>
+              </div>
+            ))}
+          </dl>
+          <Link className="text-link" href="/impact">
+            See the full model <ArrowRight aria-hidden="true" size={17} />
           </Link>
         </div>
       </section>

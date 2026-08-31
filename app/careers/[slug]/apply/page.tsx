@@ -26,7 +26,7 @@ export default async function ApplyPage({ params }: ApplyPageProps) {
       <div className="shell form-page__grid">
         <div className="form-page__intro">
           <p className="eyebrow eyebrow--line">Careers · Application</p>
-          <h1><BrandTitle>Apply with clarity.</BrandTitle></h1>
+          <h1><BrandTitle>Apply.</BrandTitle></h1>
           <p className="lede">The role is preselected. Share only what helps BSIC understand your craft, judgement and motivation.</p>
           <div className="form-page__role"><span>Selected role</span><strong>{role.title}</strong><p>{role.location} · {role.type}</p></div>
         </div>
