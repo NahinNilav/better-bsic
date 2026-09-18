@@ -35,7 +35,7 @@ export const roles: Role[] = [
     summary:
       "Lead the institution as its founding executive — with full responsibility for investment strategy, capital deployment, organisational build-out and stakeholder engagement.",
     reportsTo: "Board of Directors",
-    type: "Full-time · Founding Leadership",
+    type: "Full-time",
     location: "Dhaka, Bangladesh",
     status: "Applications open",
     roleHeading: "Founding executive of a new national investment institution.",
@@ -112,7 +112,7 @@ export const roles: Role[] = [
     summary:
       "Define how BSIC invests, build the investment team, and lead every deal from origination through exit.",
     reportsTo: "Managing Director",
-    type: "Full-time · Senior Leadership",
+    type: "Full-time",
     location: "Dhaka, Bangladesh",
     status: "Applications open",
     roleHeading: "Build the investment engine of a nationally significant institution.",
@@ -189,7 +189,7 @@ export const roles: Role[] = [
     summary:
       "Run diligence, build models, draft IC memos and engage founders directly across BSIC’s focus sectors.",
     reportsTo: "Chief Investment Officer",
-    type: "Full-time · Investment Team",
+    type: "Full-time",
     location: "Dhaka, Bangladesh",
     status: "Applications open",
     roleHeading: "Sit at the centre of the deal process.",
@@ -266,7 +266,7 @@ export const roles: Role[] = [
     summary:
       "Screen companies, build models, research markets and support diligence from first conversation through IC.",
     reportsTo: "Investment Associate",
-    type: "Full-time · Investment Team",
+    type: "Full-time",
     location: "Dhaka, Bangladesh",
     status: "Applications open",
     roleHeading: "Real responsibility from day one.",
@@ -343,7 +343,7 @@ export const roles: Role[] = [
     summary:
       "Build the conditions under which the best founders find BSIC — across universities, accelerators, government, diaspora and local capital.",
     reportsTo: "Managing Director",
-    type: "Full-time · Senior Leadership",
+    type: "Full-time",
     location: "Dhaka, Bangladesh",
     status: "Applications open",
     roleHeading: "Relationship-first. Strategy-backed. Built for pipeline.",
@@ -420,7 +420,7 @@ export const roles: Role[] = [
     summary:
       "Design and deliver the programs behind portfolio support, ecosystem partnerships and stakeholder execution.",
     reportsTo: "Head of Ecosystem Development",
-    type: "Full-time · Program & Operations",
+    type: "Full-time",
     location: "Dhaka, Bangladesh",
     status: "Applications open",
     roleHeading: "Programs that move companies forward.",
