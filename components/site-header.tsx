@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -17,6 +18,7 @@ import { navItems } from "@/data/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   return (
     <header className="site-header">
@@ -59,11 +61,21 @@ export function SiteHeader() {
 
         <Sheet>
           <SheetTrigger asChild>
-            <button className="mobile-menu-button" aria-label="Open navigation menu">
+            <button ref={menuButton} className="mobile-menu-button" aria-label="Open navigation menu">
               <Menu aria-hidden="true" size={24} />
             </button>
           </SheetTrigger>
-          <SheetContent className="mobile-sheet" side="right">
+          <SheetContent
+            className="mobile-sheet"
+            side="right"
+            onCloseAutoFocus={(event) => {
+              // Return focus to the trigger without scrolling: the sticky header
+              // plus scroll-padding-top otherwise nudges the page away from the
+              // anchor a /#section link just landed on.
+              event.preventDefault();
+              menuButton.current?.focus({ preventScroll: true });
+            }}
+          >
             <SheetHeader className="mobile-sheet__header">
               <SheetTitle className="mobile-sheet__title">Navigate</SheetTitle>
               <SheetDescription className="mobile-sheet__description">

@@ -7,11 +7,31 @@ import { PressWall } from "@/components/press-wall";
 import { SectionHeading } from "@/components/section-heading";
 import { coInvestmentStages, impactFigures } from "@/data/site";
 
-const programs = [
-  { icon: GraduationCap, title: "University accelerators" },
-  { icon: Users, title: "Founder development & mentorship" },
-  { icon: Network, title: "Accelerator & incubator partnerships" },
-  { icon: Map, title: "Regional innovation beyond Dhaka" },
+const programmes = [
+  {
+    icon: GraduationCap,
+    number: "01",
+    title: "University accelerator programmes",
+    copy: "Partnerships with leading Bangladeshi universities that identify, train and fast-track student and faculty-led ventures into investable startups.",
+  },
+  {
+    icon: Users,
+    number: "02",
+    title: "Founder development & mentorship",
+    copy: "Mentorship tracks connecting early-stage founders with experienced operators, investors and diaspora professionals.",
+  },
+  {
+    icon: Network,
+    number: "03",
+    title: "Accelerator & incubator partnerships",
+    copy: "Co-developed programming with accelerators and incubators across the country, strengthening the early-stage pipeline.",
+  },
+  {
+    icon: Map,
+    number: "04",
+    title: "Regional innovation beyond Dhaka",
+    copy: "Startup support extended to Chattogram, Sylhet, Rajshahi and secondary cities through local partnerships.",
+  },
 ];
 
 export default function Home() {
@@ -132,19 +152,20 @@ export default function Home() {
           <SectionHeading
             eyebrow="03 · Beyond capital"
             title="Building the ecosystem, not just funding it."
-            copy="BSIC partners with ecosystem players to develop early-stage founders from the ground up."
+            copy="BSIC’s mandate goes past deploying capital. It is designed to strengthen the foundations of Bangladesh’s innovation economy, partnering with ecosystem players to develop early-stage founders from the ground up."
           />
-          <ul className="program-strip">
-            {programs.map(({ icon: Icon, title }) => (
-              <li key={title}>
-                <Icon aria-hidden="true" />
-                <span>{title}</span>
+          <ul className="program-grid">
+            {programmes.map(({ icon: Icon, number, title, copy }) => (
+              <li key={number}>
+                <div className="program-grid__head">
+                  <Icon aria-hidden="true" />
+                  <span>{number}</span>
+                </div>
+                <h3>{title}</h3>
+                <p>{copy}</p>
               </li>
             ))}
           </ul>
-          <Link className="text-link" href="/ecosystem">
-            Explore the ecosystem work <ArrowRight aria-hidden="true" size={17} />
-          </Link>
         </div>
       </section>
 
@@ -170,24 +191,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section--white impact-preview" id="impact">
+      <section className="section section--white" id="impact">
         <div className="shell">
           <SectionHeading
             eyebrow="04 · Impact"
             title="What USD 35M actually delivers."
             copy="Modelled across fintech, agritech, edtech, healthtech, logistics, SaaS / AI and RMG infrastructure, where Bangladesh’s late-seed → Series B opportunity is concentrated."
           />
-          <dl className="impact-strip">
-            {impactFigures.slice(0, 3).map((figure) => (
+          <dl className="impact-grid">
+            {impactFigures.map((figure) => (
               <div key={figure.value}>
                 <dt>{figure.value}</dt>
-                <dd>{figure.label}</dd>
+                <dd>
+                  <strong>{figure.label}</strong>
+                  <span>{figure.copy}</span>
+                </dd>
               </div>
             ))}
           </dl>
-          <Link className="text-link" href="/impact">
-            See the full model <ArrowRight aria-hidden="true" size={17} />
-          </Link>
+          <p className="figures-caveat">
+            <strong>Modelled projections, not results.</strong> ONKUR launched
+            in May 2026. These are BSIC’s ten-year figures for the fund,
+            published to show the scale of the opportunity.
+          </p>
         </div>
       </section>
 

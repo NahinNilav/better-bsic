@@ -14,8 +14,8 @@ const footerGroups = [
     label: "Institution",
     links: [
       ["About BSIC", "/about"],
-      ["Ecosystem", "/ecosystem"],
-      ["Impact", "/impact"],
+      ["Ecosystem", "/#ecosystem"],
+      ["Impact", "/#impact"],
       ["Careers", "/careers"],
     ],
   },

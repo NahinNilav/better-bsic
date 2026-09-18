@@ -1,8 +1,8 @@
 export const navItems = [
   { href: "/about", label: "About" },
   { href: "/co-investment", label: "Co-investment" },
-  { href: "/ecosystem", label: "Ecosystem" },
-  { href: "/impact", label: "Impact" },
+  { href: "/#ecosystem", label: "Ecosystem" },
+  { href: "/#impact", label: "Impact" },
   { href: "/careers", label: "Careers" },
 ];
 
