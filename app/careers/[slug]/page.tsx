@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { getRole, roles } from "@/data/roles";
 import { BrandTitle } from "@/components/brand-title";
 
@@ -59,9 +59,6 @@ export default async function RolePage({ params }: RolePageProps) {
               <p className="eyebrow">CAREERS · {role.group}</p>
               <h1><BrandTitle>{role.title}</BrandTitle></h1>
               <p className="lede">{role.summary}</p>
-              <Link className="button button--primary" href={`/careers/${role.slug}/apply`}>
-                Apply for this role <ArrowRight aria-hidden="true" size={17} />
-              </Link>
             </div>
             <dl className="role-meta-card">
               <div><dt>Location</dt><dd><MapPin aria-hidden="true" size={16} /> {role.location}</dd></div>
@@ -76,8 +73,8 @@ export default async function RolePage({ params }: RolePageProps) {
       </section>
 
       <section className="role-body section section--white">
-        <div className="shell role-body__grid">
-          <article>
+        <div className="shell">
+          <article className="role-body__column">
             <section className="role-intro-section">
               <p className="eyebrow">The role</p>
               <h2><BrandTitle>{role.roleHeading}</BrandTitle></h2>
@@ -114,25 +111,13 @@ export default async function RolePage({ params }: RolePageProps) {
               <p>{role.compensation}</p>
             </section>
           </article>
-
-          <aside className="role-about">
-            <p className="eyebrow">About BSIC</p>
-            <h3>Bangladesh’s national, bank-backed venture platform.</h3>
-            <p>ONKUR — Bangladesh Fund I is a USD 35 million pool of institutional capital from 39 commercial banks, deployed alongside global venture firms.</p>
-            <ul>
-              <li><CheckCircle2 aria-hidden="true" /> Independent Investment Committee</li>
-              <li><CheckCircle2 aria-hidden="true" /> Full fiduciary accountability</li>
-              <li><CheckCircle2 aria-hidden="true" /> Permanent national platform</li>
-            </ul>
-            <Link href="/#about">Learn about BSIC <ArrowRight aria-hidden="true" size={16} /></Link>
-          </aside>
         </div>
       </section>
 
       <section className="role-closing">
         <div className="shell role-closing__grid">
           <div><p className="eyebrow">Build something enduring</p><h2><BrandTitle>{role.closing}</BrandTitle></h2></div>
-          <div><p>Applications are read by the hiring team. You will hear back either way.</p><Link className="button button--light" href={`/careers/${role.slug}/apply`}>Apply for {role.title} <ArrowRight aria-hidden="true" size={17} /></Link></div>
+          <div><p>Applications are read by the hiring team. You will hear back either way.</p><Link className="button button--paper" href={`/careers/${role.slug}/apply`}>Apply for {role.title} <ArrowRight aria-hidden="true" size={17} /></Link></div>
         </div>
       </section>
     </>

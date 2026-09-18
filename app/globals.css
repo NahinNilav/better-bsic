@@ -259,6 +259,7 @@ h3 {
 
 .mono-label--light,
 .section--green .eyebrow,
+.role-closing .eyebrow,
 .section--green .mono-label,
 .careers-hero__panel .mono-label,
 .home-hero__panel .mono-label {
@@ -336,6 +337,16 @@ h3 {
   color: var(--green-deep);
 }
 
+/* Solid light button for green bands, where a green primary would vanish. */
+.button--paper {
+  background: var(--paper);
+  color: var(--green-deep);
+}
+
+.button--paper:hover {
+  background: var(--white);
+}
+
 .button--text {
   min-height: 44px;
   padding-inline: 12px;
@@ -351,7 +362,6 @@ h3 {
 }
 
 .text-link,
-.role-about a,
 .footer-contact-link {
   display: inline-flex;
   align-items: center;
@@ -1300,7 +1310,7 @@ h3 {
 .breadcrumb a { display: inline-flex; align-items: center; gap: 7px; color: var(--green-deep); font-weight: 600; }
 .role-hero__grid { display: grid; grid-template-columns: 1fr 360px; gap: clamp(56px, 9vw, 130px); align-items: start; }
 .role-hero h1 { max-width: 850px; margin-bottom: 24px; }
-.role-hero .lede { margin-bottom: 30px; }
+.role-hero .lede { margin-bottom: 0; }
 
 .role-meta-card {
   position: sticky;
@@ -1317,7 +1327,7 @@ h3 {
 .role-meta-card .button { width: 100%; margin-top: 22px; }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }
 
-.role-body__grid { display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 100px; align-items: start; }
+.role-body__column { max-width: 880px; }
 .role-body article > section { padding: 0 0 76px; margin-bottom: 76px; border-bottom: 1px solid var(--border); }
 .role-body article > section:last-child { margin-bottom: 0; }
 .role-body article h2 { max-width: 740px; margin-bottom: 24px; }
@@ -1326,33 +1336,28 @@ h3 {
 .role-sections { margin-top: 46px; border-top: 1px solid var(--border); }
 .role-sections > div { display: grid; padding: 34px 0; grid-template-columns: 70px 1fr; gap: 20px; border-bottom: 1px solid var(--border); }
 .role-sections__number { color: var(--coral-deep); font-family: "DM Mono", monospace; font-size: .72rem; }
-.role-sections h3 { margin-bottom: 18px; text-transform: capitalize; }
+.role-sections h3 { margin-bottom: 18px; }
 .role-sections ul,
-.profile-grid ul { margin: 0; padding-left: 20px; }
+.profile-grid ul { margin: 0; padding-left: 18px; list-style: disc; }
 .role-sections li,
-.profile-grid li { margin-bottom: 11px; color: var(--ink-light); font-size: 1rem; line-height: 1.65; }
+.profile-grid li { margin-bottom: 11px; padding-left: 4px; color: var(--ink-light); font-size: 1rem; line-height: 1.65; }
+.role-sections li:last-child,
+.profile-grid li:last-child { margin-bottom: 0; }
 .role-sections li::marker,
 .profile-grid li::marker { color: var(--coral); }
 
 .profile-grid { display: grid; margin-top: 38px; grid-template-columns: repeat(2,1fr); gap: 3px; }
-.profile-grid > div { padding: 30px; background: var(--cream-soft); }
-.profile-grid h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.35rem; }
-.profile-grid li { font-size: .92rem; }
+.profile-grid > div { padding: 30px 30px 32px; background: var(--cream-soft); }
+.profile-grid h3 { margin-bottom: 18px; font-family: "Playfair Display", Georgia, serif; font-size: 1.35rem; }
+.profile-grid li { font-size: .95rem; }
 
 .compensation-block { padding: 44px !important; background: var(--cream); border: 0 !important; }
 .compensation-block p:last-child { margin-bottom: 0; }
 
-.role-about { position: sticky; top: 108px; padding: 30px; border-top: 3px solid var(--green); background: var(--cream-soft); }
-.role-about h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.45rem; }
-.role-about > p:not(.eyebrow) { color: var(--ink-light); font-size: .9rem; }
-.role-about ul { margin: 24px 0; padding: 0; list-style: none; }
-.role-about li { display: grid; grid-template-columns: 20px 1fr; gap: 8px; margin-bottom: 10px; font-size: .83rem; }
-.role-about li svg { width: 17px; color: var(--coral); }
-
-.role-closing { padding: 88px 0; background: var(--green); color: rgba(255,255,255,.76); }
+.role-closing { padding: 88px 0; background: var(--green); color: rgba(255,255,255,.88); }
 .role-closing__grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 100px; align-items: end; }
 .role-closing h2 { margin-bottom: 0; color: var(--white); }
-.role-closing__grid > div:last-child > p { margin-bottom: 24px; }
+.role-closing__grid > div:last-child > p { max-width: 420px; margin-bottom: 26px; font-size: 1.05rem; line-height: 1.65; }
 
 /* Forms */
 .form-page { min-height: 760px; padding: 86px 0 108px; background: var(--cream); }
@@ -1601,7 +1606,6 @@ h3 {
   .process-grid { grid-template-columns: repeat(3,1fr); }
   .process-grid li { padding: 28px 20px; }
   .role-group { grid-template-columns: 190px 1fr; }
-  .role-body__grid { gap: 60px; }
   .program-grid { grid-template-columns: repeat(2,1fr); }
 }
 
@@ -1643,8 +1647,6 @@ h3 {
   .role-hero__grid { grid-template-columns: 1fr; gap: 42px; }
   .role-meta-card { position: static; display: grid; grid-template-columns: repeat(2,1fr); gap: 0 24px; }
   .role-meta-card .button { grid-column: 1 / -1; }
-  .role-body__grid { grid-template-columns: 1fr; }
-  .role-about { position: static; }
   .site-footer__top { grid-template-columns: 1fr; gap: 50px; }
   .site-footer__bottom { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
 }
