@@ -27,15 +27,18 @@ export default function CareersPage() {
             </div>
             <a className="button button--primary" href="#open-roles">View open roles <ArrowRight aria-hidden="true" size={17} /></a>
           </div>
-          <div className="careers-hero__panel">
-            <GrowthRings compact />
-            <p className="mono-label mono-label--light">FOUNDING TEAM · NOW HIRING</p>
-            <dl>
-              <div><dt>Fund I</dt><dd>USD 35M</dd></div>
-              <div><dt>Shareholder banks</dt><dd>39</dd></div>
-              <div><dt>Open roles</dt><dd>06</dd></div>
-            </dl>
-            <p>Small, senior and built from day one.</p>
+          <div className="home-hero__panel careers-hero__panel">
+            <GrowthRings />
+            <div className="home-hero__panel-content">
+              <p className="mono-label mono-label--light">Founding team · Now hiring</p>
+              <dl className="careers-hero__stats">
+                <div><dt>Fund I</dt><dd>USD 35M</dd></div>
+                <div><dt>Shareholder banks</dt><dd>39</dd></div>
+                <div><dt>Open roles</dt><dd>{String(roles.length).padStart(2, "0")}</dd></div>
+              </dl>
+              <div className="home-hero__panel-divider" />
+              <p className="careers-hero__note">Small, senior and built from day one.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -56,17 +59,17 @@ export default function CareersPage() {
                 </div>
                 <div>
                   {roles.filter((role) => role.group === group).map((role) => (
-                    <article className="role-row" key={role.slug}>
+                    <Link className="role-row" href={`/careers/${role.slug}`} key={role.slug}>
                       <p className="role-row__number">{role.order}</p>
                       <div className="role-row__main">
                         <h3>{role.title}</h3>
                         <p>{role.summary}</p>
                         <div><span>{role.level}</span><span>{role.location}</span><span>{role.status}</span></div>
                       </div>
-                      <Link href={`/careers/${role.slug}`} aria-label={`View ${role.title} role`}>
+                      <span className="role-row__cta">
                         View role <ArrowRight aria-hidden="true" size={17} />
-                      </Link>
-                    </article>
+                      </span>
+                    </Link>
                   ))}
                 </div>
               </section>
@@ -89,10 +92,7 @@ export default function CareersPage() {
 
       <section className="section section--green careers-principles">
         <div className="shell">
-          <div>
-            <p className="eyebrow">Working at BSIC</p>
-            <h2><BrandTitle>High standards. Clear ownership. Long-term thinking.</BrandTitle></h2>
-          </div>
+          <SectionHeading eyebrow="Working at BSIC" title="High standards. Clear ownership. Long-term thinking." />
           <div className="careers-principles__grid">
             <article><h3>Work mode</h3><p>Roles are based in Dhaka and built around close, in-person collaboration. Ask about flexibility during the hiring process.</p></article>
             <article><h3>Compensation</h3><p>Packages are role-appropriate and internationally or regionally benchmarked, with performance alignment where applicable.</p></article>

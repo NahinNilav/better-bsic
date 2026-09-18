@@ -1206,8 +1206,9 @@ h3 {
   --bleed-inset: max(var(--shell-gutter), (100% - var(--shell-max)) / 2);
   display: grid;
   width: 100%;
-  min-height: 650px;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  min-height: calc(100svh - 78px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+  align-items: stretch;
 }
 
 .careers-hero__grid > div:first-child {
@@ -1242,22 +1243,45 @@ h3 {
   text-transform: uppercase;
 }
 
-.careers-hero__panel {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: center;
-  padding: 62px clamp(62px, 5vw, 92px) 62px clamp(48px, 4vw, 62px);
-  background: var(--green);
-  color: rgba(255,255,255,.72);
+/* The panel itself is .home-hero__panel; only the stats list is specific. */
+.careers-hero__stats {
+  margin: 0 0 24px;
 }
 
-.careers-hero__panel > *:not(.growth-rings) { position: relative; z-index: 1; }
-.careers-hero__panel dl { margin: 20px 0 30px; }
-.careers-hero__panel dl div { display: flex; min-height: 78px; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-dark); }
-.careers-hero__panel dt { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; }
-.careers-hero__panel dd { margin: 0; color: var(--white); font-family: "Playfair Display", Georgia, serif; font-size: 2rem; font-weight: 700; }
+.careers-hero__stats div {
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.careers-hero__stats div:last-child {
+  border-bottom: 0;
+}
+
+.careers-hero__stats dt {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.careers-hero__stats dd {
+  margin: 0;
+  color: var(--white);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.careers-hero__note {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+}
 
 .role-groups { border-top: 1px solid var(--border); }
 .role-group { display: grid; grid-template-columns: 240px 1fr; border-bottom: 1px solid var(--border); }
@@ -1265,23 +1289,34 @@ h3 {
 .role-group__heading .mono-label { margin: 0; }
 .role-group__heading > span { color: var(--border); font-family: "Playfair Display", Georgia, serif; font-size: 4rem; }
 
+/* The whole row is one link; the "View role" text is its visible affordance. */
 .role-row {
   display: grid;
   min-height: 220px;
-  padding: 30px 0 30px 36px;
+  padding: 30px 24px 30px 36px;
   grid-template-columns: 54px 1fr auto;
   align-items: start;
   gap: 24px;
   border-bottom: 1px solid var(--border);
+  color: inherit;
+  transition: background-color var(--dur-hover) var(--ease-out);
 }
 
 .role-row:last-child { border-bottom: 0; }
 .role-row__number { color: var(--coral-deep); font-family: "DM Mono", monospace; font-size: .73rem; }
-.role-row h3 { margin-bottom: 12px; font-family: "Playfair Display", Georgia, serif; font-size: 1.8rem; }
+.role-row h3 { margin-bottom: 12px; font-family: "Playfair Display", Georgia, serif; font-size: 1.8rem; transition: color var(--dur-hover) var(--ease-out); }
 .role-row__main > p { max-width: 680px; margin-bottom: 18px; color: var(--ink-light); font-size: .94rem; }
 .role-row__main > div { display: flex; flex-wrap: wrap; gap: 8px; }
 .role-row__main > div span { padding: 4px 8px; background: var(--cream); color: var(--ink-light); font-family: "DM Mono", monospace; font-size: .62rem; text-transform: uppercase; }
-.role-row > a { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; color: var(--green-deep); font-size: .86rem; font-weight: 600; }
+.role-row__cta { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; color: var(--green-deep); font-size: .86rem; font-weight: 600; }
+.role-row__cta svg { transition: transform var(--dur-hover) var(--ease-out); }
+.role-row:focus-visible { outline: 2px solid var(--coral); outline-offset: -2px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .role-row:hover { background: var(--cream-soft); }
+  .role-row:hover h3 { color: var(--green); }
+  .role-row:hover .role-row__cta svg { transform: translateX(4px); }
+}
 
 .hiring-grid {
   display: grid;
@@ -1298,11 +1333,10 @@ h3 {
 .hiring-grid h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.45rem; }
 .hiring-grid p { color: var(--ink-light); font-size: .92rem; }
 
-.careers-principles > .shell > div:first-child { display: grid; grid-template-columns: .4fr 1fr; gap: 60px; margin-bottom: 50px; }
-.careers-principles__grid { display: grid; grid-template-columns: repeat(2,1fr); border-top: 1px solid var(--border-dark); border-left: 1px solid var(--border-dark); margin-bottom: 34px; }
-.careers-principles__grid article { min-height: 230px; padding: 30px; border-right: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
-.careers-principles__grid h3 { font-family: "Playfair Display", Georgia, serif; }
-.careers-principles__grid p { color: rgba(255,255,255,.72); font-size: .92rem; }
+.careers-principles__grid { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--border-dark); border-left: 1px solid var(--border-dark); margin-bottom: 40px; }
+.careers-principles__grid article { padding: 32px 28px 36px; border-right: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
+.careers-principles__grid h3 { margin-bottom: 14px; font-family: "Playfair Display", Georgia, serif; font-size: 1.35rem; }
+.careers-principles__grid p { margin: 0; color: rgba(255,255,255,.78); font-size: .95rem; line-height: 1.65; }
 
 /* Role detail */
 .role-hero { padding: 42px 0 74px; background: var(--cream); }
@@ -1600,7 +1634,8 @@ h3 {
   .home-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, .78fr); }
   .home-hero__copy { padding-right: 48px; }
   .home-hero h1 { font-size: clamp(3.4rem, 6.8vw, 4.6rem); }
-  .careers-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, .74fr); }
+  .careers-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, .78fr); }
+  .careers-principles__grid { grid-template-columns: repeat(2,1fr); }
   .bank-wall__grid { grid-template-columns: repeat(5,1fr); }
   .press-wall__grid { grid-template-columns: repeat(2,1fr); }
   .process-grid { grid-template-columns: repeat(3,1fr); }
@@ -1617,7 +1652,7 @@ h3 {
   .home-hero__copy,
   .careers-hero__grid > div:first-child { padding: 78px var(--shell-gutter) 64px; }
   .home-hero__panel { min-height: 520px; }
-  .careers-hero__panel { min-height: 390px; }
+  .careers-hero__grid { min-height: auto; }
 
   .process-grid { grid-template-columns: repeat(2,1fr); }
   .process-grid li { min-height: 300px; }
@@ -1645,7 +1680,6 @@ h3 {
   .role-group__heading { min-height: 110px; flex-direction: row; align-items: center; padding: 22px 0; border-right: 0; border-bottom: 1px solid var(--border); }
   .role-group__heading > span { font-size: 2.5rem; }
   .role-row { padding-left: 0; }
-  .careers-principles > .shell > div:first-child { grid-template-columns: 1fr; gap: 10px; }
   .role-hero__grid { grid-template-columns: 1fr; gap: 42px; }
   .role-meta-card { position: static; display: grid; grid-template-columns: repeat(2,1fr); gap: 0 24px; }
   .role-meta-card .button { grid-column: 1 / -1; }
@@ -1702,9 +1736,8 @@ h3 {
   .architecture-grid span { margin-bottom: 30px; }
   .architecture-grid h3 { max-width: none; font-size: 1.6rem; }
   .careers-hero__grid > div:first-child { padding: 58px var(--shell-gutter) 50px; }
-  .careers-hero__panel { min-height: 400px; padding: 38px var(--shell-gutter); }
-  .role-row { grid-template-columns: 36px 1fr; gap: 12px; }
-  .role-row > a { grid-column: 2; }
+  .role-row { grid-template-columns: 36px 1fr; gap: 12px; padding-right: 0; }
+  .role-row__cta { grid-column: 2; }
   .role-meta-card { grid-template-columns: 1fr; }
   .role-sections > div { grid-template-columns: 42px 1fr; }
   .compensation-block { padding: 30px !important; }
