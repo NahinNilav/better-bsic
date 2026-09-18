@@ -724,31 +724,24 @@ h3 {
   margin: 0;
   padding: 0;
   grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--border-dark);
-  border-left: 1px solid var(--border-dark);
+  gap: 3px;
   list-style: none;
 }
 
+/* Five solid cells in the two brand colours, alternating as on the original
+   site. The coral is nudged towards coral-deep so white body text stays
+   above 4.5:1. */
 .process-grid li {
   display: flex;
   min-height: 330px;
   flex-direction: column;
   padding: 30px 24px;
-  border-right: 1px solid var(--border-dark);
-  border-bottom: 1px solid var(--border-dark);
+  background: var(--green);
+  color: rgba(255, 255, 255, 0.82);
 }
 
-/* Stages 02 and 04 are filled in brand coral, as on the original site, so
-   the row reads as a sequence rather than five identical cells. The fill is
-   nudged towards coral-deep to keep white body text above 4.5:1. */
 .process-grid li:nth-child(even) {
   background: color-mix(in srgb, var(--coral) 90%, var(--coral-deep));
-  border-color: transparent;
-  color: var(--white);
-}
-
-.process-grid li:nth-child(even) .process-grid__number,
-.process-grid li:nth-child(even) > p:not(.process-grid__number) {
   color: var(--white);
 }
 
@@ -760,6 +753,11 @@ h3 {
   letter-spacing: 0.12em;
 }
 
+.process-grid li:nth-child(even) .process-grid__number,
+.process-grid li:nth-child(even) > p:not(.process-grid__number) {
+  color: var(--white);
+}
+
 .process-grid h3 {
   margin-bottom: 16px;
   font-family: "Playfair Display", Georgia, serif;
@@ -768,20 +766,9 @@ h3 {
 
 .process-grid li > p:not(.process-grid__number) {
   margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.78);
   font-size: 0.94rem;
 }
 
-.process-grid li > span {
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.64);
-  font-family: "DM Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 
 .portfolio-preview__grid > div:first-child > p:not(.eyebrow) {
   max-width: 650px;
@@ -1169,8 +1156,7 @@ h3 {
 }
 
 /* Pillar tiles. Height comes from the content, not a fixed box: the number
-   sits in a ruled header strip, then the title and copy are scaled up to
-   carry the tile. */
+   sits at the top, then the title and copy are scaled up to carry the tile. */
 .architecture-grid > div {
   padding: 36px 40px 44px;
   background: var(--green);
@@ -1179,9 +1165,7 @@ h3 {
 
 .architecture-grid span {
   min-height: 0;
-  margin-bottom: 36px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255,255,255,.2);
+  margin-bottom: 44px;
   color: #f2a18f;
 }
 
@@ -1508,21 +1492,45 @@ h3 {
 .site-footer__bottom { display: grid; min-height: 76px; align-items: center; grid-template-columns: 1fr auto auto; gap: 30px; border-top: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.5); font-family: "DM Mono", monospace; font-size: .64rem; letter-spacing: .04em; }
 .site-footer__bottom p { margin: 0; }
 
-/* Closing line under a section's grid: a short rule, then a quiet aside. */
+/* Closing note under a section's grid: a short rule, a mono label, and the
+   sentence beside it, in the same small-print voice as the eyebrows. */
 .section-footnote {
-  max-width: 760px;
+  display: grid;
+  max-width: 900px;
   margin: 44px 0 0;
   padding-top: 24px;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 24px;
   border-top: 1px solid var(--border);
+}
+
+.section-footnote__label {
+  padding-top: 4px;
+  color: var(--coral-deep);
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.section-footnote p {
+  max-width: 640px;
+  margin: 0;
   color: var(--ink-light);
-  font-size: 0.98rem;
-  font-style: italic;
+  font-size: 0.95rem;
   line-height: 1.7;
 }
 
 .section--green .section-footnote {
   border-top-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.66);
+}
+
+.section--green .section-footnote__label {
+  color: #f2a18f;
+}
+
+.section--green .section-footnote p {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Impact */
@@ -1680,7 +1688,7 @@ h3 {
   .section-heading { margin-bottom: 38px; }
 
   .process-grid { grid-template-columns: 1fr; }
-  .process-grid li { min-height: 290px; }
+  .process-grid li { min-height: 0; padding: 28px 24px 34px; }
   .process-grid__number { margin-bottom: 42px; }
 
   .bank-wall__grid { grid-template-columns: repeat(2,1fr); }
@@ -1689,6 +1697,7 @@ h3 {
   .impact-grid { grid-template-columns: 1fr; }
   .bank-wall__cell img { max-height: 54px; }
 
+  .section-footnote { grid-template-columns: 1fr; gap: 10px; }
   .press-wall__grid { grid-template-columns: 1fr; }
   .press-card { min-height: auto; padding: 26px; }
   .press-card__headline { margin-bottom: 26px; }
@@ -1700,7 +1709,7 @@ h3 {
   .profile-grid { grid-template-columns: 1fr; }
   .mandate-grid article { padding: 30px 26px; }
   .architecture-grid > div { padding: 28px 26px 34px; }
-  .architecture-grid span { margin-bottom: 26px; }
+  .architecture-grid span { margin-bottom: 30px; }
   .architecture-grid h3 { max-width: none; font-size: 1.6rem; }
   .careers-hero__grid > div:first-child { padding: 58px var(--shell-gutter) 50px; }
   .careers-hero__panel { min-height: 400px; padding: 38px var(--shell-gutter); }
