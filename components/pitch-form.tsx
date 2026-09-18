@@ -94,12 +94,9 @@ export function PitchForm() {
         <h2>Thank you, {data.founder || "founder"}.</h2>
         <p>
           A live submission would reach the investment team with{" "}
-          {data.company || "your company"}, the round and your lead investor
-          attached, and you would get a confirmation by email.
+          {data.company || "your company"} and your round attached.
         </p>
-        <p className="form-demo-note">
-          This is a prototype. Nothing was transmitted.
-        </p>
+        <p className="form-demo-note">Prototype — nothing was transmitted.</p>
         <Button
           className="button button--secondary"
           type="button"
@@ -135,8 +132,7 @@ export function PitchForm() {
               Who is leading it?
             </legend>
             <p className="form-gate-note">
-              BSIC commits matching capital alongside a credible institutional
-              lead. Tell us where that search stands.
+              BSIC commits alongside a credible institutional lead.
             </p>
             <div className="form-grid">
               <label className="form-grid__full">
@@ -156,14 +152,13 @@ export function PitchForm() {
               </label>
               {data.lead === "Seeking" ? (
                 <p className="form-gate-callout form-grid__full" role="status">
-                  BSIC matches a lead rather than setting terms, so a round
-                  without one is early for a match. Continue if you would like the
-                  team to know you now — introductions sometimes come from the
-                  co-investor network.
+                  BSIC matches a lead rather than setting terms, so this is early
+                  for a match. Continue anyway — introductions sometimes come from
+                  the co-investor network.
                 </p>
               ) : null}
               {data.lead === "Committed" || data.lead === "In discussion" ? (
-                <label className="form-grid__full">
+                <label>
                   Lead investor
                   <Input
                     className="form-control"
@@ -303,17 +298,18 @@ export function PitchForm() {
                   autoComplete="tel"
                 />
               </label>
-              <div className="form-summary">
-                <p className="mono-label">Submission summary</p>
-                <p><strong>{data.company || "Company"}</strong> · {data.stage || "Stage"}</p>
-                <p>{data.sector || "Sector"} · Raising {data.raise || "—"}</p>
-                <p>Lead: {data.leadFirm || data.lead || "—"}</p>
-              </div>
             </div>
-            <p className="form-privacy">
-              This prototype sends nothing. A live form would show BSIC’s privacy
-              notice and document-upload policy here.
-            </p>
+            <div className="form-summary">
+              <p className="mono-label">Submission summary</p>
+              <dl>
+                <div><dt>Company</dt><dd>{data.company || "—"}</dd></div>
+                <div><dt>Stage</dt><dd>{data.stage || "—"}</dd></div>
+                <div><dt>Sector</dt><dd>{data.sector || "—"}</dd></div>
+                <div><dt>Raising</dt><dd>{data.raise || "—"}</dd></div>
+                <div><dt>Lead</dt><dd>{data.leadFirm || data.lead || "—"}</dd></div>
+              </dl>
+            </div>
+            <p className="form-privacy">Prototype — nothing is sent.</p>
           </fieldset>
         ) : null}
 

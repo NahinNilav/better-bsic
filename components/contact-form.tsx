@@ -50,7 +50,7 @@ export function ContactForm({ initialAudience = "general" }: { initialAudience?:
           <label>Organisation<Input className="form-control" autoComplete="organization" /></label>
           <label className="form-grid__full">Message <span aria-hidden="true">*</span><Textarea className="form-control form-control--textarea" placeholder="What would a useful next conversation cover?" required /></label>
         </div>
-        <p className="form-privacy">This prototype sends nothing. A live form would show BSIC’s privacy notice here.</p>
+        <p className="form-privacy">Prototype — nothing is sent.</p>
       </fieldset>
       <div className="flow-form__actions flow-form__actions--right">
         <Button className="button button--primary" type="submit">Send demo enquiry <ArrowRight aria-hidden="true" size={17} /></Button>

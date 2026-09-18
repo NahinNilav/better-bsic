@@ -82,7 +82,8 @@ export function ApplicationForm({ roleTitle, roleSlug }: { roleTitle: string; ro
           </label>
         </div>
         <p className="form-privacy">
-          Need an adjustment to the process? Get in touch through the contact route.
+          Need an adjustment to the process?{" "}
+          <Link href="/contact?for=recruiting">Get in touch</Link>. Prototype — nothing is sent.
         </p>
       </fieldset>
       <div className="flow-form__actions">
