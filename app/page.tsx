@@ -52,15 +52,6 @@ const mandate = [
   },
 ];
 
-const operatingFacts = [
-  { label: "Paid-up capital", value: "Tk 4.25Bn" },
-  { label: "Authorised capital", value: "Tk 20Bn" },
-  { label: "Stage", value: "Late-seed → Series A" },
-  { label: "Instruments", value: "Equity · SAFE · Convertible" },
-  { label: "Round", value: "Institutionally led" },
-  { label: "Model", value: "Global co-investment" },
-];
-
 export default function Home() {
   return (
     <>
@@ -151,14 +142,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <dl className="fact-rail">
-            {operatingFacts.map((fact) => (
-              <div key={fact.label}>
-                <dt>{fact.label}</dt>
-                <dd>{fact.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </section>
 
@@ -178,13 +161,11 @@ export default function Home() {
               </li>
             ))}
           </ol>
-          <div className="precedent-note">
-            <p>
-              Singapore’s Temasek and GIC built their ecosystem this way —
-              co-investing alongside tier-one firms until their domestic capital
-              base could lead on its own. BSIC does the same for Bangladesh.
-            </p>
-          </div>
+          <p className="section-footnote">
+            Singapore’s Temasek and GIC built their ecosystem this way —
+            co-investing alongside tier-one firms until their domestic capital
+            base could lead on its own. BSIC does the same for Bangladesh.
+          </p>
         </div>
       </section>
 
@@ -250,10 +231,8 @@ export default function Home() {
               </div>
             ))}
           </dl>
-          <p className="figures-caveat">
-            <strong>Modelled projections, not results.</strong> ONKUR launched
-            in May 2026. These are BSIC’s ten-year figures for the fund,
-            published to show the scale of the opportunity.
+          <p className="section-footnote">
+            Modelled ten-year projections that show the scale of the opportunity.
           </p>
         </div>
       </section>
