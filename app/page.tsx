@@ -161,14 +161,11 @@ export default function Home() {
               </li>
             ))}
           </ol>
-          <div className="section-footnote">
-            <span className="section-footnote__label">Precedent</span>
-            <p>
-              Singapore’s Temasek and GIC built their ecosystem this way —
-              co-investing alongside tier-one firms until their domestic capital
-              base could lead on its own. BSIC does the same for Bangladesh.
-            </p>
-          </div>
+          <p className="section-footnote">
+            Singapore’s Temasek and GIC built their ecosystem this way —
+            co-investing alongside tier-one firms until their domestic capital
+            base could lead on its own. BSIC does the same for Bangladesh.
+          </p>
         </div>
       </section>
 
@@ -234,10 +231,9 @@ export default function Home() {
               </div>
             ))}
           </dl>
-          <div className="section-footnote">
-            <span className="section-footnote__label">Modelled figures</span>
-            <p>Modelled ten-year projections that show the scale of the opportunity.</p>
-          </div>
+          <p className="section-footnote">
+            Modelled ten-year projections that show the scale of the opportunity.
+          </p>
         </div>
       </section>
 
