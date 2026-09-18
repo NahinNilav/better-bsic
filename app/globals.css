@@ -1168,35 +1168,36 @@ h3 {
   gap: 3px;
 }
 
-/* Near-square tiles: the number sits at the top, the title and copy are
-   anchored to the bottom, and the space between is deliberate. */
+/* Pillar tiles. Height comes from the content, not a fixed box: the number
+   sits in a ruled header strip, then the title and copy are scaled up to
+   carry the tile. */
 .architecture-grid > div {
-  display: flex;
-  min-height: 400px;
-  flex-direction: column;
-  padding: 34px 34px 38px;
+  padding: 36px 40px 44px;
   background: var(--green);
-  color: rgba(255,255,255,.78);
+  color: rgba(255,255,255,.8);
 }
 
 .architecture-grid span {
   min-height: 0;
-  margin-bottom: auto;
-  padding-bottom: 56px;
+  margin-bottom: 36px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,.2);
   color: #f2a18f;
 }
 
 .architecture-grid h3 {
-  margin-bottom: 14px;
+  max-width: 15ch;
+  margin-bottom: 18px;
   color: var(--white);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.85rem;
+  line-height: 1.2;
 }
 
 .architecture-grid p {
   margin: 0;
-  font-size: .95rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 /* Insights */
@@ -1637,7 +1638,6 @@ h3 {
   .milestone-grid,
   .hiring-grid,
   .architecture-grid { grid-template-columns: repeat(2,1fr); }
-  .architecture-grid > div { min-height: 340px; }
   .mandate-grid,
   .editorial-roadmap > .shell > div:last-child { grid-template-columns: 1fr; }
   .role-group { grid-template-columns: 1fr; }
@@ -1699,8 +1699,9 @@ h3 {
   .careers-principles__grid,
   .profile-grid { grid-template-columns: 1fr; }
   .mandate-grid article { padding: 30px 26px; }
-  .architecture-grid > div { min-height: 0; padding: 28px 26px 30px; }
-  .architecture-grid span { padding-bottom: 40px; }
+  .architecture-grid > div { padding: 28px 26px 34px; }
+  .architecture-grid span { margin-bottom: 26px; }
+  .architecture-grid h3 { max-width: none; font-size: 1.6rem; }
   .careers-hero__grid > div:first-child { padding: 58px var(--shell-gutter) 50px; }
   .careers-hero__panel { min-height: 400px; padding: 38px var(--shell-gutter); }
   .role-row { grid-template-columns: 36px 1fr; gap: 12px; }
