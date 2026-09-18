@@ -5,7 +5,7 @@ import { BankWall } from "@/components/bank-wall";
 import { GrowthRings } from "@/components/growth-rings";
 import { PressWall } from "@/components/press-wall";
 import { SectionHeading } from "@/components/section-heading";
-import { coInvestmentStages, impactFigures } from "@/data/site";
+import { coInvestmentStages, impactFigures, structurePillars } from "@/data/site";
 
 const programmes = [
   {
@@ -34,6 +34,33 @@ const programmes = [
   },
 ];
 
+const mandate = [
+  {
+    label: "Vision",
+    title: "Banking capital → startup growth",
+    copy: "Convert Bangladesh’s banking sector — the country’s largest pool of institutionally managed capital — into a direct driver of startup growth, job creation and new industry formation.",
+  },
+  {
+    label: "Purpose",
+    title: "Three mandates",
+    copy: "Direct equity investment into high-growth startups. Co-investment alongside global institutional VC funds. A domestic anchor that brings foreign capital into Bangladesh.",
+  },
+  {
+    label: "Outcome",
+    title: "A globally aligned asset class",
+    copy: "A credible institutional vehicle delivering financial returns, measurable innovation impact, and Bangladesh’s position as an investable destination for global VC and FDI.",
+  },
+];
+
+const operatingFacts = [
+  { label: "Paid-up capital", value: "Tk 4.25Bn" },
+  { label: "Authorised capital", value: "Tk 20Bn" },
+  { label: "Stage", value: "Late-seed → Series A" },
+  { label: "Instruments", value: "Equity · SAFE · Convertible" },
+  { label: "Round", value: "Institutionally led" },
+  { label: "Model", value: "Global co-investment" },
+];
+
 export default function Home() {
   return (
     <>
@@ -54,7 +81,7 @@ export default function Home() {
               <Link className="button button--primary" href="/pitch">
                 Pitch BSIC <ArrowUpRight aria-hidden="true" size={17} />
               </Link>
-              <Link className="button button--secondary" href="/co-investment">
+              <Link className="button button--secondary" href="/#co-investment">
                 How co-investment works <ArrowRight aria-hidden="true" size={17} />
               </Link>
             </div>
@@ -100,28 +127,45 @@ export default function Home() {
             title="Not a programme. A permanent institution."
             copy="39 commercial banks contribute up to 1% of annual net profits, pooled into BSIC and deployed as institutional venture capital by a professional team, under an independent Investment Committee."
           />
-          <dl className="criteria-grid">
-            <div><dt>Paid-up capital</dt><dd>Tk 4.25Bn</dd></div>
-            <div><dt>Authorised capital</dt><dd>Tk 20Bn</dd></div>
-            <div><dt>Stage</dt><dd>Late-seed → Series A</dd></div>
-            <div><dt>Instruments</dt><dd>Equity · SAFE · Convertible</dd></div>
-            <div><dt>Round</dt><dd>Institutionally led</dd></div>
-            <div><dt>Model</dt><dd>Global co-investment</dd></div>
-          </dl>
-          <div className="thesis-note">
-            <p>
-              An independent Investment Committee decides every investment, with
-              full fiduciary accountability to the shareholder banks.
-            </p>
-            <Link href="/about">How BSIC is structured <ArrowRight aria-hidden="true" size={16} /></Link>
+          <div className="mandate-grid">
+            {mandate.map((item) => (
+              <article key={item.label}>
+                <span>{item.label}</span>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </article>
+            ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section section--cream" id="structure">
+        <div className="shell">
+          <SectionHeading eyebrow="02 · Structure" title="How BSIC operates." />
+          <div className="architecture-grid">
+            {structurePillars.map((pillar) => (
+              <div key={pillar.number}>
+                <span>{pillar.number}</span>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.copy}</p>
+              </div>
+            ))}
+          </div>
+          <dl className="fact-rail">
+            {operatingFacts.map((fact) => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
       <section className="section section--green" id="co-investment">
         <div className="shell">
           <SectionHeading
-            eyebrow="02 · Co-investment"
+            eyebrow="03 · Co-investment"
             title="A co-investment process that benefits everyone."
             copy="Co-investment isn’t just how BSIC invests — it’s how BSIC accelerates your fundraise. Local institutional capital that matches the foreign lead, opens local doors, and closes rounds at global standards."
           />
@@ -140,9 +184,6 @@ export default function Home() {
               co-investing alongside tier-one firms until their domestic capital
               base could lead on its own. BSIC does the same for Bangladesh.
             </p>
-            <Link className="text-link text-link--light" href="/co-investment">
-              See the full process <ArrowRight aria-hidden="true" size={17} />
-            </Link>
           </div>
         </div>
       </section>
@@ -150,7 +191,7 @@ export default function Home() {
       <section className="section section--cream" id="ecosystem">
         <div className="shell">
           <SectionHeading
-            eyebrow="03 · Beyond capital"
+            eyebrow="04 · Beyond capital"
             title="Building the ecosystem, not just funding it."
             copy="BSIC’s mandate goes past deploying capital. It is designed to strengthen the foundations of Bangladesh’s innovation economy, partnering with ecosystem players to develop early-stage founders from the ground up."
           />
@@ -194,7 +235,7 @@ export default function Home() {
       <section className="section section--white" id="impact">
         <div className="shell">
           <SectionHeading
-            eyebrow="04 · Impact"
+            eyebrow="05 · Impact"
             title="What USD 35M actually delivers."
             copy="Modelled across fintech, agritech, edtech, healthtech, logistics, SaaS / AI and RMG infrastructure, where Bangladesh’s late-seed → Series B opportunity is concentrated."
           />

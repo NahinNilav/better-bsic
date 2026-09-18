@@ -182,7 +182,6 @@ h3 {
 
 .section--green .brand-dot,
 .home-hero__panel .brand-dot,
-.page-hero__panel .brand-dot,
 .careers-hero__panel .brand-dot,
 .audience-cta .brand-dot,
 .role-closing .brand-dot {
@@ -261,7 +260,6 @@ h3 {
 .mono-label--light,
 .section--green .eyebrow,
 .section--green .mono-label,
-.page-hero__panel .mono-label,
 .careers-hero__panel .mono-label,
 .home-hero__panel .mono-label {
   color: #f2a18f;
@@ -353,7 +351,6 @@ h3 {
 }
 
 .text-link,
-.thesis-note a,
 .role-about a,
 .footer-contact-link {
   display: inline-flex;
@@ -714,87 +711,8 @@ h3 {
 }
 
 /* Home sections */
-.criteria-grid {
-  display: grid;
-  margin: 0;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--border);
-  border-left: 1px solid var(--border);
-}
-
-.criteria-grid div {
-  min-height: 142px;
-  padding: 28px;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.criteria-grid dt {
-  margin-bottom: 30px;
-  color: var(--coral-deep);
-  font-family: "DM Mono", monospace;
-  font-size: 0.71rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.criteria-grid dd {
-  margin: 0;
-  color: var(--green-deep);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.45rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.thesis-note {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  margin-top: 34px;
-  padding: 26px 0 0;
-  border-top: 1px solid var(--border);
-}
-
-.thesis-note p {
-  max-width: 750px;
-  margin-bottom: 0;
-  color: var(--ink-light);
-  font-size: 0.9rem;
-}
-
-.thesis-note strong {
-  color: var(--ink);
-}
-
 .value-split__dark .eyebrow {
   color: #f2a18f;
-}
-
-.check-list {
-  display: grid;
-  margin: 0 0 36px;
-  padding: 0;
-  gap: 17px;
-  list-style: none;
-}
-
-.check-list li {
-  display: grid;
-  grid-template-columns: 22px 1fr;
-  gap: 12px;
-  font-size: 0.96rem;
-  line-height: 1.55;
-}
-
-.check-list svg {
-  width: 19px;
-  color: var(--coral);
-}
-
-.check-list--dark {
-  margin-bottom: 0;
 }
 
 .process-section {
@@ -1141,74 +1059,6 @@ h3 {
   font-weight: 600;
 }
 
-/* Page hero */
-.page-hero {
-  overflow: hidden;
-  background: var(--cream);
-}
-
-.page-hero__grid {
-  --bleed-inset: max(var(--shell-gutter), (100% - var(--shell-max)) / 2);
-  display: grid;
-  width: 100%;
-  min-height: 590px;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
-}
-
-.page-hero__copy {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  justify-content: center;
-  padding: 86px clamp(48px, 5vw, 80px) 86px var(--bleed-inset);
-}
-
-.page-hero__copy h1 {
-  max-width: 810px;
-  margin-bottom: 28px;
-}
-
-.page-hero__panel {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 58px clamp(58px, 5vw, 88px) 58px clamp(48px, 4vw, 64px);
-  background: var(--green);
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.page-hero__panel > *:not(.growth-rings) {
-  position: relative;
-  z-index: 1;
-}
-
-.page-hero__panel-title {
-  max-width: 390px;
-  margin-bottom: 20px;
-  color: var(--white);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.85rem, 3vw, 2.7rem);
-  font-weight: 700;
-  line-height: 1.15;
-}
-
-.page-hero__panel > p:last-child {
-  max-width: 420px;
-  margin-bottom: 0;
-}
-
-.due-diligence-grid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 100px;
-}
-
-.due-diligence-grid > div:first-child > p:last-child {
-  color: rgba(255, 255, 255, 0.74);
-}
-
 .faq-grid .section-heading {
   margin-bottom: 0;
 }
@@ -1270,16 +1120,7 @@ h3 {
   line-height: 1.6;
 }
 
-/* About */
-.about-mandate__lead {
-  max-width: 900px;
-  margin-bottom: 55px;
-  color: var(--green-deep);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.55rem, 2.5vw, 2.2rem);
-  line-height: 1.5;
-}
-
+/* About + structure grids */
 .mandate-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1324,33 +1165,52 @@ h3 {
 .architecture-grid h3 { color: var(--white); font-family: "Playfair Display", Georgia, serif; font-size: 1.45rem; }
 .architecture-grid p { font-size: .92rem; }
 
-.governance-note {
-  margin-top: 28px;
-  padding: 26px 30px;
-  border-left: 3px solid var(--coral);
-  background: var(--paper);
+/* Operating facts under the structure pillars: three columns to line up
+   with the pillars above, each fact as a label / value pair. */
+.fact-rail {
+  display: grid;
+  margin: 34px 0 0;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--border);
 }
 
-.governance-note p { margin: 0; color: var(--ink-light); }
-.governance-note strong { color: var(--ink); }
-
-.about-capital {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 90px;
+.fact-rail div {
+  display: flex;
+  min-height: 66px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 24px 14px 0;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.about-capital dl {
-  display: grid;
+.fact-rail div:not(:nth-child(3n + 1)) {
+  padding-left: 24px;
+}
+
+.fact-rail div:nth-child(3n) {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.fact-rail dt {
+  color: var(--coral-deep);
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.fact-rail dd {
   margin: 0;
-  grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid var(--border-dark);
-  border-left: 1px solid var(--border-dark);
+  color: var(--green-deep);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: right;
 }
-
-.about-capital dl div { min-height: 150px; padding: 26px; border-right: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
-.about-capital dt { color: rgba(255,255,255,.65); font-size: .75rem; text-transform: uppercase; letter-spacing: .07em; }
-.about-capital dd { margin: 18px 0 0; color: var(--white); font-family: "Playfair Display", Georgia, serif; font-size: 2rem; font-weight: 700; }
 
 /* Insights */
 .editorial-roadmap > .shell > div:last-child { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
@@ -1660,69 +1520,6 @@ h3 {
 .site-footer__bottom { display: grid; min-height: 76px; align-items: center; grid-template-columns: 1fr auto auto; gap: 30px; border-top: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.5); font-family: "DM Mono", monospace; font-size: .64rem; letter-spacing: .04em; }
 .site-footer__bottom p { margin: 0; }
 
-/* Page hero fund facts */
-.page-hero__facts {
-  margin: 0;
-  border-top: 1px solid var(--border-dark);
-}
-
-.page-hero__facts div {
-  display: flex;
-  min-height: 62px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-bottom: 1px solid var(--border-dark);
-}
-
-.page-hero__facts dt {
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 0.76rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.page-hero__facts dd {
-  margin: 0;
-  color: var(--white);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-/* Co-investment stages */
-.stage-list {
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--border);
-  list-style: none;
-}
-
-.stage-list li {
-  display: grid;
-  padding: 30px 0;
-  grid-template-columns: 190px 1fr;
-  gap: 32px;
-  border-bottom: 1px solid var(--border);
-}
-
-.stage-list .mono-label {
-  margin-bottom: 0;
-}
-
-.stage-list h3 {
-  margin-bottom: 10px;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.55rem;
-}
-
-.stage-list p:not(.mono-label) {
-  max-width: 640px;
-  margin-bottom: 0;
-  color: var(--ink-light);
-}
-
 .precedent-note {
   display: flex;
   align-items: center;
@@ -1739,16 +1536,6 @@ h3 {
   margin-bottom: 0;
   font-size: 1.02rem;
   line-height: 1.7;
-}
-
-.precedent-note--light {
-  background: var(--cream-soft);
-  color: var(--ink-light);
-}
-
-.text-link--light {
-  color: var(--white);
-  white-space: nowrap;
 }
 
 /* Impact */
@@ -1812,10 +1599,6 @@ h3 {
   line-height: 1.65;
 }
 
-.about-enquiry {
-  margin-top: 38px;
-}
-
 /* Pitch: the lead-investor gate */
 .form-gate-note {
   max-width: 620px;
@@ -1846,8 +1629,6 @@ h3 {
   .home-hero__copy { padding-right: 48px; }
   .home-hero h1 { font-size: clamp(3.4rem, 6.8vw, 4.6rem); }
   .careers-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, .74fr); }
-  .page-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, .74fr); }
-  .page-hero__copy { padding-right: 48px; }
   .bank-wall__grid { grid-template-columns: repeat(5,1fr); }
   .press-wall__grid { grid-template-columns: repeat(2,1fr); }
   .process-grid { grid-template-columns: repeat(3,1fr); }
@@ -1861,28 +1642,25 @@ h3 {
   :root { --shell-gutter: 24px; }
   .section { padding: 82px 0; }
   .home-hero__grid,
-  .page-hero__grid,
   .careers-hero__grid { grid-template-columns: 1fr; }
   .home-hero__copy,
-  .page-hero__copy,
   .careers-hero__grid > div:first-child { padding: 78px var(--shell-gutter) 64px; }
-  .page-hero__panel { padding: 48px var(--shell-gutter); }
   .home-hero__panel { min-height: 520px; }
-  .page-hero__panel,
   .careers-hero__panel { min-height: 390px; }
-  .criteria-grid { grid-template-columns: repeat(2,1fr); }
 
   .process-grid { grid-template-columns: repeat(2,1fr); }
   .process-grid li { min-height: 300px; }
+  .fact-rail { grid-template-columns: repeat(2,1fr); }
+  .fact-rail div:not(:nth-child(3n + 1)) { padding-left: 0; }
+  .fact-rail div:nth-child(3n) { padding-right: 24px; border-right: 1px solid var(--border); }
+  .fact-rail div:nth-child(2n) { padding-left: 24px; }
+  .fact-rail div:nth-child(2n) { padding-right: 0; border-right: 0; }
   .portfolio-preview__grid,
-  .due-diligence-grid,
   .disclosure-promise,
-  .about-capital,
   .role-closing__grid,
   .form-page__grid { grid-template-columns: 1fr; gap: 56px; }
   .form-page__intro { position: static; }
   .bank-wall__grid { grid-template-columns: repeat(3,1fr); }
-  .stage-list li { grid-template-columns: 1fr; gap: 10px; }
   .impact-grid { grid-template-columns: repeat(2,1fr); }
   .precedent-note { flex-direction: column; align-items: flex-start; gap: 18px; }
 
@@ -1934,10 +1712,8 @@ h3 {
   .home-hero__panel-content { width: calc(100% - 48px); padding: 30px; }
   .growth-rings { right: -320px; }
   .section-heading { margin-bottom: 38px; }
-  .criteria-grid { grid-template-columns: 1fr; }
-  .criteria-grid div { min-height: 115px; }
-  .criteria-grid dt { margin-bottom: 20px; }
-  .thesis-note { flex-direction: column; align-items: flex-start; }
+  .fact-rail { grid-template-columns: 1fr; }
+  .fact-rail div:nth-child(n) { min-height: 58px; padding: 12px 0; border-right: 0; }
 
   .process-grid { grid-template-columns: 1fr; }
   .process-grid li { min-height: 290px; }
@@ -1953,15 +1729,12 @@ h3 {
   .press-card { min-height: auto; padding: 26px; }
   .press-card__headline { margin-bottom: 26px; }
   .audience-cta article { padding: 42px 20px; }
-  .page-hero__copy { padding: 60px var(--shell-gutter) 52px; }
-  .page-hero__panel { min-height: 360px; padding: 36px var(--shell-gutter); }
 
   .milestone-grid,
   .architecture-grid,
   .careers-principles__grid,
   .profile-grid { grid-template-columns: 1fr; }
   .mandate-grid article { padding: 30px 26px; }
-  .about-capital dl { grid-template-columns: 1fr; }
   .careers-hero__grid > div:first-child { padding: 58px var(--shell-gutter) 50px; }
   .careers-hero__panel { min-height: 400px; padding: 38px var(--shell-gutter); }
   .role-row { grid-template-columns: 36px 1fr; gap: 12px; }

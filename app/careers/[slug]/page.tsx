@@ -124,7 +124,7 @@ export default async function RolePage({ params }: RolePageProps) {
               <li><CheckCircle2 aria-hidden="true" /> Full fiduciary accountability</li>
               <li><CheckCircle2 aria-hidden="true" /> Permanent national platform</li>
             </ul>
-            <Link href="/about">Learn about BSIC <ArrowRight aria-hidden="true" size={16} /></Link>
+            <Link href="/#about">Learn about BSIC <ArrowRight aria-hidden="true" size={16} /></Link>
           </aside>
         </div>
       </section>

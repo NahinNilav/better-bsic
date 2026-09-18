@@ -5,7 +5,7 @@ const footerGroups = [
   {
     label: "Invest",
     links: [
-      ["Co-investment", "/co-investment"],
+      ["Co-investment", "/#co-investment"],
       ["Pitch BSIC", "/pitch"],
       ["Co-invest with us", "/contact?for=co-investor"],
     ],
@@ -13,7 +13,7 @@ const footerGroups = [
   {
     label: "Institution",
     links: [
-      ["About BSIC", "/about"],
+      ["About BSIC", "/#about"],
       ["Ecosystem", "/#ecosystem"],
       ["Impact", "/#impact"],
       ["Careers", "/careers"],
