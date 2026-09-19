@@ -37,7 +37,7 @@
   --input: #b7b7b0;
   --ring: var(--focus);
   --radius: 2px;
-  --shell-max: 1280px;
+  --shell-max: 1200px;
   --shell-gutter: 64px;
 
   /*
@@ -90,13 +90,20 @@ html {
   scroll-padding-top: 94px;
 }
 
+/* Desktop runs on a 15px root: every rem-based size (type, labels,
+   buttons) comes down ~6% and the display headings a further ~10%, so the
+   whole page reads about 15% less zoomed. Phones keep the 16px root. */
+@media (min-width: 961px) {
+  html { font-size: 15px; }
+}
+
 body {
   margin: 0;
   min-width: 320px;
   background: var(--cream);
   color: var(--ink);
   font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -153,13 +160,13 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(3rem, 6vw, 4.75rem);
+  font-size: clamp(2.8rem, 5.4vw, 4.3rem);
   font-weight: 900;
   line-height: 1.02;
 }
 
 h2 {
-  font-size: clamp(2.3rem, 4vw, 3.35rem);
+  font-size: clamp(2.1rem, 3.6vw, 3rem);
   font-weight: 700;
   line-height: 1.08;
 }
@@ -194,7 +201,7 @@ h3 {
 }
 
 .section {
-  padding: 104px 0;
+  padding: 92px 0;
 }
 
 .section--white {
@@ -269,7 +276,7 @@ h3 {
 .lede {
   max-width: 680px;
   color: var(--ink-light);
-  font-size: clamp(1.08rem, 1.5vw, 1.28rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   line-height: 1.65;
 }
 
@@ -538,7 +545,7 @@ h3 {
   max-width: 760px;
   margin-bottom: 28px;
   color: var(--green);
-  font-size: clamp(3.6rem, 6.5vw, 5.35rem);
+  font-size: clamp(3.4rem, 5.9vw, 4.8rem);
 }
 
 .home-hero h1 em {
@@ -692,7 +699,7 @@ h3 {
 /* Section heading */
 .section-heading {
   max-width: 790px;
-  margin-bottom: 58px;
+  margin-bottom: 52px;
 }
 
 .section-heading h2 {
@@ -1627,7 +1634,7 @@ h3 {
   .site-header__inner { grid-template-columns: auto 1fr auto auto; gap: 14px; }
   .home-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, .78fr); }
   .home-hero__copy { padding-right: 48px; }
-  .home-hero h1 { font-size: clamp(3.4rem, 6.8vw, 4.6rem); }
+  .home-hero h1 { font-size: clamp(3.2rem, 6.2vw, 4.2rem); }
   .careers-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, .78fr); }
   .careers-principles__grid { grid-template-columns: repeat(2,1fr); }
   .bank-wall__grid { grid-template-columns: repeat(5,1fr); }
