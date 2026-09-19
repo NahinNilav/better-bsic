@@ -6,7 +6,7 @@ import { shareholderBanks } from "@/data/site";
  * There is deliberately no "featured" subset — every bank holds equal standing
  * in the fund, so every logo gets the same cell, cap height and treatment.
  */
-export function BankWall({ note }: { note?: string }) {
+export function BankWall() {
   return (
     <div className="bank-wall">
       <ul className="bank-wall__grid">
@@ -22,7 +22,6 @@ export function BankWall({ note }: { note?: string }) {
           </li>
         ))}
       </ul>
-      {note ? <p className="bank-wall__note">{note}</p> : null}
     </div>
   );
 }

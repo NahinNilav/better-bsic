@@ -198,7 +198,7 @@ export default function Home() {
             title="39 commercial banks. One national mandate."
             copy="BSIC is backed by Bangladesh’s leading commercial banks, whose capital forms the institutional foundation of ONKUR — Bangladesh Fund I."
           />
-          <BankWall note="Every shareholder bank of ONKUR — Bangladesh Fund I, listed alphabetically and weighted equally." />
+          <BankWall />
         </div>
       </section>
 

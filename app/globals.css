@@ -849,18 +849,6 @@ h3 {
   }
 }
 
-.bank-wall__note {
-  margin: 0;
-  padding: 20px 26px;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--paper);
-  color: var(--ink-light);
-  font-family: "DM Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.05em;
-  line-height: 1.6;
-}
 
 /* Press */
 .press-wall__grid {
@@ -1431,7 +1419,10 @@ h3 {
 
 .flow-form form { margin: 0; }
 .flow-form fieldset { margin: 0; padding: 34px; border: 0; }
-.flow-form legend { display: block; width: 100%; margin-bottom: 24px; color: var(--green-deep); font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.5rem, 2.2vw, 1.85rem); font-weight: 700; line-height: 1.25; }
+/* A legend is normally pinned to the fieldset's top edge, outside its padding.
+   Floating it makes it flow like any other block, inside the padding. */
+.flow-form legend { float: left; width: 100%; margin-bottom: 28px; color: var(--green-deep); font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.5rem, 2.2vw, 1.85rem); font-weight: 700; line-height: 1.25; }
+.flow-form legend + * { clear: both; }
 .flow-form legend .eyebrow { display: block; margin-bottom: 12px; font-family: "DM Mono", monospace; font-size: .72rem; }
 
 .form-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 26px 20px; }

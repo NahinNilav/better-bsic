@@ -149,8 +149,8 @@ export const pressItems = [
   {
     publication: "Tech in Asia",
     logo: "/press/techinasia.png",
-    logoWidth: 200,
-    logoHeight: 200,
+    logoWidth: 158,
+    logoHeight: 150,
     date: "May 2026",
     title: "Bangladesh banks launch $35M fund to tackle startup financing gap",
     href: "https://www.techinasia.com/bangladesh-banks-launch-35m-fund-tackle-startup-financing-gap",
