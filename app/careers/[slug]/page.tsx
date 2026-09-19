@@ -54,25 +54,15 @@ export default async function RolePage({ params }: RolePageProps) {
             <span aria-hidden="true">/</span>
             <span>{role.group}</span>
           </nav>
-          <div className="role-hero__grid">
-            <div>
-              <h1><BrandTitle>{role.title}</BrandTitle></h1>
-              <p className="lede">{role.summary}</p>
-            </div>
-            <dl className="role-meta-card">
-              <div><dt>Location</dt><dd><MapPin aria-hidden="true" size={16} /> {role.location}</dd></div>
-              <div><dt>Team</dt><dd>{role.group}</dd></div>
-              <div><dt>Reports to</dt><dd>{role.reportsTo}</dd></div>
-              <div><dt>Employment</dt><dd>{role.type}</dd></div>
-              <div><dt>Status</dt><dd><span className="status-dot" /> {role.status}</dd></div>
-              <Link className="button button--primary" href={`/careers/${role.slug}/apply`}>Apply now <ArrowRight aria-hidden="true" size={16} /></Link>
-            </dl>
+          <div className="role-hero__copy">
+            <h1><BrandTitle>{role.title}</BrandTitle></h1>
+            <p className="lede">{role.summary}</p>
           </div>
         </div>
       </section>
 
       <section className="role-body section section--white">
-        <div className="shell">
+        <div className="shell role-body__grid">
           <article className="role-body__column">
             <section className="role-intro-section">
               <p className="eyebrow">The role</p>
@@ -110,6 +100,15 @@ export default async function RolePage({ params }: RolePageProps) {
               <p>{role.compensation}</p>
             </section>
           </article>
+
+          <dl className="role-meta-card">
+            <div><dt>Location</dt><dd><MapPin aria-hidden="true" size={16} /> {role.location}</dd></div>
+            <div><dt>Team</dt><dd>{role.group}</dd></div>
+            <div><dt>Reports to</dt><dd>{role.reportsTo}</dd></div>
+            <div><dt>Employment</dt><dd>{role.type}</dd></div>
+            <div><dt>Status</dt><dd><span className="status-dot" /> {role.status}</dd></div>
+            <Link className="button button--primary" href={`/careers/${role.slug}/apply`}>Apply now <ArrowRight aria-hidden="true" size={16} /></Link>
+          </dl>
         </div>
       </section>
 
