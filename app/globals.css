@@ -1532,6 +1532,84 @@ h3 {
 .site-footer__bottom { display: grid; min-height: 76px; align-items: center; grid-template-columns: 1fr auto auto; gap: 30px; border-top: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.5); font-family: "DM Mono", monospace; font-size: .64rem; letter-spacing: .04em; }
 .site-footer__bottom p { margin: 0; }
 
+/* Design credit: the resting place of the card that drops in on arrival. */
+.footer-credit {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px 0 11px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: border-color var(--dur-hover) var(--ease-out), color var(--dur-hover) var(--ease-out);
+}
+
+.footer-credit strong { color: var(--white); font-weight: 500; }
+.footer-credit svg { transition: transform var(--dur-hover) var(--ease-out); }
+
+.footer-credit__dot,
+.credit-pop__dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-credit:hover { border-color: rgba(255, 255, 255, 0.7); color: var(--white); }
+  .footer-credit:hover svg { transform: translate(2px, -2px); }
+}
+
+/* The arrival card: fixed under the header, drops in with a little
+   overshoot, holds, then tumbles out of the bottom of the viewport. */
+.credit-pop {
+  position: fixed;
+  top: 98px;
+  left: 50%;
+  z-index: 90;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px 0 14px;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--green-deep);
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 40px rgba(26, 60, 46, 0.18);
+  opacity: 0;
+  transform: translate(-50%, -30px);
+}
+
+.credit-pop strong { font-weight: 500; }
+.credit-pop--enter { animation: credit-drop-in 640ms cubic-bezier(0.2, 0.9, 0.3, 1.15) forwards; }
+.credit-pop--enter .credit-pop__dot { animation: credit-pulse 1.4s ease-in-out 700ms infinite; }
+.credit-pop--leave { animation: credit-fall 1000ms cubic-bezier(0.55, 0, 0.85, 0.35) forwards; }
+
+@keyframes credit-drop-in {
+  from { opacity: 0; transform: translate(-50%, -30px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes credit-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+}
+
+@keyframes credit-fall {
+  0% { opacity: 1; transform: translate(-50%, 0) rotate(0deg); }
+  25% { opacity: 1; transform: translate(-50%, -14px) rotate(-4deg); }
+  100% { opacity: 0; transform: translate(-50%, 110vh) rotate(8deg); }
+}
+
 /* Closing aside under a section's grid: a short coral tick, then a quiet
    italic line. */
 .section-footnote {
@@ -1686,7 +1764,9 @@ h3 {
   .role-meta-card { position: static; display: grid; order: -1; grid-template-columns: repeat(2,1fr); gap: 0 24px; }
   .role-meta-card .button { grid-column: 1 / -1; }
   .site-footer__top { grid-template-columns: 1fr; gap: 50px; }
-  .site-footer__bottom { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+  .site-footer__bottom { grid-template-columns: 1fr; gap: 12px; padding: 22px 0; }
+  .footer-credit { justify-self: start; }
+  .credit-pop { top: 86px; max-width: calc(100% - 32px); }
 }
 
 @media (max-width: 700px) {

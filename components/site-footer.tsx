@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { credit } from "@/data/credit";
 
 const footerGroups = [
   {
@@ -63,6 +64,11 @@ export function SiteFooter() {
       <div className="site-footer__bottom shell">
         <p>© 2026 Bangladesh Startup Investment Company PLC</p>
         <p>ONKUR — Bangladesh Fund I · Launched May 2026</p>
+        <a className="footer-credit" href={credit.linkedin} target="_blank" rel="noreferrer">
+          <span className="footer-credit__dot" aria-hidden="true" />
+          {credit.role} <strong>{credit.name}</strong>
+          <ArrowUpRight aria-hidden="true" size={13} />
+        </a>
       </div>
     </footer>
   );

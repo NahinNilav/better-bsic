@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CreditBadge } from "@/components/credit-badge";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />
+        <CreditBadge />
       </body>
     </html>
   );
