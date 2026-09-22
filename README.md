@@ -1,62 +1,31 @@
-# BSIC website redesign — V1
+# better-bsic
 
-A production-shaped frontend redesign for Bangladesh Startup Investment Company PLC and ONKUR — Bangladesh Fund I.
+An unofficial redesign of the [BSIC website](https://www.bsic.vc/).
 
-The implementation preserves the live brand’s Playfair Display, DM Sans and DM Mono typography, institutional green/cream/coral palette, BSIC wordmark, key fund facts, shareholder context and published careers content. It rebuilds the experience around clearer information architecture, readable type, consistent templates, accessible interaction and transparent conversion paths.
+## What BSIC is
 
-## Run locally
+The Bangladesh Startup Investment Company (BSIC) is a venture capital firm backed by 39 commercial banks. Its first fund, ONKUR — Bangladesh Fund I, is a USD 35 million pool of institutional capital. BSIC does not lead rounds. A founder secures a global or regional lead investor, and BSIC matches that commitment, runs diligence on the ground and brings local investors into the round.
+
+## Why we redesigned it
+
+We saw a BSIC recruitment post and went to the site to read the roles. The writing read as machine-generated, and the career pages were hard to get through — you could not tell what any of the jobs actually involved.
+
+The work is good and the mandate matters. The site was not doing it justice. So we spent a weekend rebuilding it.
+
+## What changed
+
+- **Structure.** Back to the original's shape: one landing page with About, Structure, Co-investment, Ecosystem and Impact as sections, plus a separate careers page. No invented pages.
+- **Writing.** Every claim traces to the live site. The AI-sounding copy is rewritten in plain institutional English.
+- **Careers.** Each role gets a readable page — what the job is, what you would do, who they are looking for, what it pays — beside a sticky facts panel.
+- **Branding.** Unchanged. Same Playfair Display, DM Sans and DM Mono; same green, cream and coral; same wordmark and fund facts.
+
+The forms are a frontend prototype. Nothing is sent anywhere.
+
+## Run it
 
 ```bash
-npm ci
-npm run dev:next
+npm install
+npm run dev
 ```
 
-Open `http://localhost:3000`.
-
-For a production check:
-
-```bash
-npm run build:next
-npm run start:next
-```
-
-## Deploy to Vercel
-
-1. Import this folder as a new Vercel project.
-2. Keep the detected framework as **Next.js**.
-3. The included `vercel.json` runs `npm ci` and `npm run build:next`.
-4. Deploy.
-
-The project is frontend-only. Pitch, contact and job application submissions are intentionally simulated; they do not transmit data. The pitch form’s Save draft action uses browser local storage.
-
-## Implemented routes
-
-The information architecture follows the live site's own content. Every section
-maps to something BSIC has actually published; nothing is invented to fill a page.
-
-- `/` — hero, what BSIC is, co-investment, ecosystem, shareholder banks, press, impact
-- `/about` — mandate, structure, capital base and all 39 shareholders
-- `/co-investment` — the five-stage process, scope and the Temasek/GIC precedent
-- `/ecosystem` — the four programme areas and partner pathways
-- `/impact` — BSIC's modelled ten-year outcomes, labelled as projections
-- `/careers` — grouped open roles and hiring process
-- `/careers/[slug]` — role detail for all six roles
-- `/careers/[slug]/apply` — preselected mock application flow
-- `/pitch` — founder intake, opening with the lead-investor question
-- `/contact` — audience-routed mock enquiry flow
-- styled 404 page
-
-## The co-investment model
-
-BSIC matches a lead investor the founder has already secured. It does not run an
-open application funnel and does not set terms. The five stages — founder secures
-lead, BSIC matches, joint diligence, local investors join, round closes — are
-stated identically on the homepage, on `/co-investment` and in the pitch form.
-
-## Before a public production launch
-
-- Replace mock form confirmation with approved secure endpoints, spam protection and notification workflows.
-- Have BSIC approve exact investment thresholds, governance biographies, privacy/retention language and regulatory disclosures.
-- Replace the prototype `noindex` metadata with the final indexing policy.
-- Add approved analytics, real-user Core Web Vitals monitoring, link checks and automated accessibility tests.
-- Self-host/subset the three brand font families if licensing and asset files are available.
+Then open http://localhost:3000.
