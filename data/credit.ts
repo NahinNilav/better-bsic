@@ -2,6 +2,5 @@
 export const credit = {
   name: "Nahin Ehsan Nilav",
   role: "Redesigned by",
-  // TODO: replace with the real profile URL before sharing.
-  linkedin: "https://www.linkedin.com/in/REPLACE-WITH-YOUR-HANDLE",
+  linkedin: "https://www.linkedin.com/in/nnilav/",
 };
